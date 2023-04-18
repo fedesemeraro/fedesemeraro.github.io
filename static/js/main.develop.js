@@ -83,13 +83,13 @@ App.window = $(window);
 App.document = $(document);
 App.handleExternalLinks();
 
-// if (App.window.width() > 1024) {
+if (App.window.width() > 1024) {
     App.wow = (new WOW({
                     boxClass: 'animate',
                     offset: 80,
                     mobile: false
                 })).init();
-// }
+}
 
 
 })();
@@ -3560,13 +3560,13 @@ $(function () {
             this.$el.prepend(container);
             this.fovOffset = 1;
             if (window.innerWidth < 640) {
-                this.isMobile = false; //true;
+                this.isMobile = true;
                 this.extraParticles = 5;
                 this.fovOffset = 1.2;
             }
 
             if (window.innerWidth <= 320) {
-                this.isSmallMobile = false; //true;
+                this.isSmallMobile = true;
                 this.extraParticles = 0;
                 this.fovOffset = 1.25;
             }
