@@ -3616,11 +3616,11 @@ $(function () {
                         baseColor: '#ffffff',
                         scale: 2,
                         points: [
-                            {label: '                Studies', connections: [0], url: '/other_pages/about.html',cVParents:[2]},
-                            {label: '                Work', connections: [0,1], url: '/other_pages/about.html',cVParents:[2]},
-                            {label: '                Projects', connections: [0,1,2], url: '/other_pages/about.html',cVParents:[2]},
-                            {label: '                Publications', connections: [1,2,3], url: '/other_pages/about.html',cVParents:[2]},
-                            {label: '                Hobbies', connections: [2,3,4], url: '/other_pages/about.html',cVParents:[2]},
+                            {label: '                Studies', connections: [0], url: 'other_pages/index.html#studies',cVParents:[0]},
+                            {label: '                Work', connections: [0,1], url: 'other_pages/index.html#work',cVParents:[1]},
+                            {label: '                Projects', connections: [0,1,2], url: 'other_pages/index.html#projects',cVParents:[3]},
+                            {label: '                About', connections: [1,2,3], url: 'other_pages/index.html#about',cVParents:[4]},
+                            {label: '                Hobbies', connections: [2,3,4], url: 'other_pages/index.html#hobbies',cVParents:[5]},
                         ]
                     }
                 ];

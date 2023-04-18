@@ -1825,7 +1825,7 @@ body {
 }
 
 [data-dm-tmpl=form-elements].block-context--applied .btn:hover:before {
-    background-color: #ad0000
+    background-color: #00a6ad
 }
 
 [data-dm-tmpl=form-elements].block-context--deepmind .btn:hover {
@@ -3262,7 +3262,7 @@ textarea {
 }
 
 .grad-map--applied:after, .grad-map--green:after {
-    background-color: #800606;
+    background-color: #1185da;
     mix-blend-mode: difference;
     z-index: 1;
     transition: all .3s ease-in-out
@@ -3871,15 +3871,15 @@ textarea {
 }
 
 .menu-item--deepmind .menu-item--heading, .menu-item--deepmind .menu-item--item-heading, .menu-item--deepmind .p--small a, .menu-item--deepmind .rich-text a, .menu-item--deepmind .underline, .p--small .menu-item--deepmind a, .rich-text .menu-item--deepmind a {
-    color: #2f9eef
+    color: #000000
 }
 
 .no-touchevents .menu-item--deepmind .menu-item--heading:hover, .no-touchevents .menu-item--deepmind .menu-item--item-heading:hover, .no-touchevents .menu-item--deepmind .p--small a:hover, .no-touchevents .menu-item--deepmind .rich-text a:hover, .no-touchevents .menu-item--deepmind .underline:hover, .p--small .no-touchevents .menu-item--deepmind a:hover, .rich-text .no-touchevents .menu-item--deepmind a:hover {
-    color: #1185da
+    color: #000000
 }
 
 .menu-item--deepmind .menu-item--heading {
-    border-color: #2f9eef
+    border-color: #EFF0F1
 }
 
 .menu-item--deepmind .p--small a, .menu-item--deepmind .rich-text a, .menu-item--deepmind .underline, .p--small .menu-item--deepmind a, .rich-text .menu-item--deepmind a {
