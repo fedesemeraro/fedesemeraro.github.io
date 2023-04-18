@@ -83,13 +83,13 @@ App.window = $(window);
 App.document = $(document);
 App.handleExternalLinks();
 
-if (App.window.width() > 1024) {
+// if (App.window.width() > 1024) {
     App.wow = (new WOW({
                     boxClass: 'animate',
                     offset: 80,
                     mobile: false
                 })).init();
-}
+// }
 
 
 })();
