@@ -3560,13 +3560,13 @@ $(function () {
             this.$el.prepend(container);
             this.fovOffset = 1;
             if (window.innerWidth < 640) {
-                this.isMobile = true;
+                this.isMobile = false; //true;
                 this.extraParticles = 5;
                 this.fovOffset = 1.2;
             }
 
             if (window.innerWidth <= 320) {
-                this.isSmallMobile = true;
+                this.isSmallMobile = false; //true;
                 this.extraParticles = 0;
                 this.fovOffset = 1.25;
             }
