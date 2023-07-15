@@ -8,6 +8,11 @@ function loadAboutBody(){
     .then(response=> response.text())
     .then(text=> document.getElementById('body_content').innerHTML = text);
 }
+function loadAboutImg(){
+  fetch('static/js/sections/about_img.html')
+  .then(response=> response.text())
+  .then(text=> document.getElementById('body_img').innerHTML = text);
+}
 
 function loadHobbiesTitle(){
     fetch('static/js/sections/hobbies_title.html')
