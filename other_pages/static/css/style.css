@@ -1405,10 +1405,10 @@ body {
 }
 
 .rich-text ul li:before {
-    background-color: #2f9eef;
+    background-color: #2f9fef00;
     border-radius: 100%;
     content: '';
-    left: -36px;
+    left: -10000000000000px;
     position: absolute;
     top: 7px;
     height: 12px;
