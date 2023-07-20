@@ -13,25 +13,25 @@
   <script src="static/js/vendor/modernizr-custom-f157f835f4.js"></script>
   <script>(function () { var fn = function () { window.DM_APP_ERROR = { timer: null, delay: 3e3, hasError: !1, errorFn: function (r) { console.error("DM_APP_ERROR", r), window.DM_APP_ERROR.hasError = !0 } }, window.DM_APP_ERROR.timer = setTimeout(function () { window.DM_APP_ERROR.hasError ? [].slice.call(document.querySelectorAll("[data-scroll-item]")).forEach(function (r) { return r.className += " show" }) : document.documentElement.className += " no-js" }, window.DM_APP_ERROR.delay), window.addEventListener("error", window.DM_APP_ERROR.errorFn, !1) }; fn(); })();</script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="static/js/display_html.js"></script>
+  <script src="static/js/variable_ids.js"></script>
   <script type="text/javascript" src="static/js/main.js" defer></script>
 </head>
 
 
 <!-- BODY -->
+
 <body class="sector-landing" onLoad="
-if (document.location.href.indexOf('#hobbies') != -1) {
-	loadHobbiesTitle(); loadHobbiesBody(); 
+if (document.location.href.indexOf('#publications') != -1) {
+	loadPublications(); 
 } else if (document.location.href.indexOf('#projects') != -1) {
-	loadProjectsTitle(); loadProjectsBody(); 
+	loadProjects(); 
 } else if (document.location.href.indexOf('#studies') != -1) {
-	loadStudiesTitle(); loadStudiesBody(); 
+	loadStudies(); 
 } else if (document.location.href.indexOf('#work') != -1) {
-	loadWorkTitle(); loadWorkBody(); 
+	loadWork(); 
 } else {
-  loadAboutTitle(); loadAboutBody(); loadAboutImg(); // fallback to About
-}
-">
+  loadAbout(); // fallback to About
+}">
 
   <div data-dm-tmpl="dm-app" data-dm-app
     data-app-model='{"apiBasePath":"api", "basePath":"","homePath":"","routeBlacklist":[]}'>
@@ -78,8 +78,8 @@ if (document.location.href.indexOf('#hobbies') != -1) {
             <section class="g-sm-col-4 g-md-col-2 g-lg-col-3 g-md-gut g-lg-gut menu-item menu-item--deepmind">
               <header class="menu-item--header">
                 <h1 class="h4 menu-item--heading border-bottom">
-                  <button onclick="javascript:window.location.href='index.html#hobbies'; window.location.reload();">
-                    Hobbies
+                  <button onclick="javascript:window.location.href='index.html#publications'; window.location.reload();">
+                    Publications
                   </button>
                 </h1>
               </header>
@@ -132,35 +132,23 @@ if (document.location.href.indexOf('#hobbies') != -1) {
       <div class="page page-sector-landing" data-dm-page="sector-landing" data-context="deepmind">
 
         <!-- moving animation -->
-        <section id="block-0" class="cf section--block story-hero " data-dm-tmpl="story-hero" data-theme="applied" data-scroll-item>
+        <section class="cf section--block story-hero " data-dm-tmpl="story-hero" data-theme="applied" data-scroll-item>
 
-          <!-- variable header title (changes according to id, replaced by display_html.js) -->
-          <div id="header_title" class="story-hero--item" data-story-item data-story-item-state="active"></div>
+          <div class="story-hero--item" data-story-item data-story-item-state="active">
+            <article class="container cf story-hero--item-text" data-message-item>
+              <header class="g-sm-col-4 g-md-col-5 g-lg-col-8 g-lg-push-1">
+
+                <h1 id="header_title" class="h1 white"></h1>
+
+              </header>
+            </article>
+          </div>
 
           <div class="story-hero--item story-hero--item-ib" data-ib-target data-story-item-state="active"></div>
         </section>
 
-        <div class="cf repositioner">
-          <div id="block-1" class=" rich-text--applied " data-dm-tmpl="rich-text" data-collapse="no" data-scroll-item>
-            <div class="g-sm-col-4 g-lg-col-7 g-lg-push-1">
-
-              <!-- variable body content (changes according to id, replaced by display_html.js) -->
-              <div id="body_content" class="rich-text"></div>
-
-            </div>
-          </div>
-
-          <section class="cf related-inline container" data-dm-tmpl="related-inline" data-scroll-item>
-            <article class="three-up--item three-up--item--applied g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "
-              data-dm-tmpl="three-up-item">
-
-              <!-- variable picture (changes according to id, replaced by display_html.js) -->
-              <div id="body_img" class="right three-up--image"></div>
-
-            </article>
-          </section>
-
-        </div>
+        <!-- variable body content (changes according to id, replaced by display_html.js) -->
+        <div id="body_content" class="cf repositioner"></div>
       </div>
 
 
@@ -170,6 +158,12 @@ if (document.location.href.indexOf('#hobbies') != -1) {
           <header class="g-sm-col-4 g-lg-col-10 g-lg-push-1">
             <div class="right social-items footer--social-items">
               <ul class="left unstyled">
+
+                <li class="left social-item">
+                  <a href="https://drive.google.com/file/d/1rVNenrc4KMGMROUZaNk2VqCSIc5ilZHf/view?usp=sharing" target="_blank">
+                    <img src="static/icons/resume.svg">
+                  </a>
+                </li>
 
                 <li class="left social-item">
                   <a href="https://www.linkedin.com/in/fedesemeraro" target="_blank">
@@ -185,7 +179,7 @@ if (document.location.href.indexOf('#hobbies') != -1) {
 
                 <li class="left social-item">
                   <a href="https://scholar.google.com/citations?user=DMuVhnkAAAAJ&hl" target="_blank">
-                    <img src="static/icons/google-scholar.svg">
+                    <img src="static/icons/gscholar.svg">
                   </a>
                 </li>
 

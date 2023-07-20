@@ -3620,7 +3620,7 @@ $(function () {
                             {label: '                Work', connections: [0,1], url: 'other_pages/index.html#work',cVParents:[1]},
                             {label: '                Projects', connections: [0,1,2], url: 'other_pages/index.html#projects',cVParents:[3]},
                             {label: '                About', connections: [1,2,3], url: 'other_pages/index.html#about',cVParents:[4]},
-                            {label: '                Hobbies', connections: [2,3,4], url: 'other_pages/index.html#hobbies',cVParents:[5]},
+                            {label: '                Publications', connections: [2,3,4], url: 'other_pages/index.html#publications',cVParents:[5]},
                         ]
                     }
                 ];
