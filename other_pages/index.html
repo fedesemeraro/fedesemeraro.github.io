@@ -21,14 +21,8 @@
 <!-- BODY -->
 
 <body class="sector-landing" onLoad="
-if (document.location.href.indexOf('#publications') != -1) {
-	loadPublications(); 
-} else if (document.location.href.indexOf('#projects') != -1) {
+if (document.location.href.indexOf('#projects') != -1) {
 	loadProjects(); 
-} else if (document.location.href.indexOf('#studies') != -1) {
-	loadStudies(); 
-} else if (document.location.href.indexOf('#work') != -1) {
-	loadWork(); 
 } else {
   loadAbout(); // fallback to About
 }">
@@ -78,38 +72,8 @@ if (document.location.href.indexOf('#publications') != -1) {
             <section class="g-sm-col-4 g-md-col-2 g-lg-col-3 g-md-gut g-lg-gut menu-item menu-item--deepmind">
               <header class="menu-item--header">
                 <h1 class="h4 menu-item--heading border-bottom">
-                  <button onclick="javascript:window.location.href='index.html#publications'; window.location.reload();">
-                    Publications
-                  </button>
-                </h1>
-              </header>
-            </section>
-
-            <section class="g-sm-col-4 g-md-col-2 g-lg-col-3 g-md-gut g-lg-gut menu-item menu-item--deepmind">
-              <header class="menu-item--header">
-                <h1 class="h4 menu-item--heading border-bottom">
                   <button onclick="javascript:window.location.href='index.html#projects'; window.location.reload();">
                     Projects
-                  </button>
-                </h1>
-              </header>
-            </section>
-
-            <section class="g-sm-col-4 g-md-col-2 g-lg-col-3 g-md-gut g-lg-gut menu-item menu-item--deepmind">
-              <header class="menu-item--header">
-                <h1 class="h4 menu-item--heading border-bottom">
-                  <button onclick="javascript:window.location.href='index.html#studies'; window.location.reload();">
-                    Studies
-                  </button>
-                </h1>
-              </header>
-            </section>
-
-            <section class="g-sm-col-4 g-md-col-2 g-lg-col-3 g-md-gut g-lg-gut menu-item menu-item--deepmind">
-              <header class="menu-item--header">
-                <h1 class="h4 menu-item--heading border-bottom">
-                  <button onclick="javascript:window.location.href='index.html#work'; window.location.reload();">
-                    Work
                   </button>
                 </h1>
               </header>
@@ -160,7 +124,8 @@ if (document.location.href.indexOf('#publications') != -1) {
               <ul class="left unstyled">
 
                 <li class="left social-item">
-                  <a href="https://drive.google.com/file/d/1rVNenrc4KMGMROUZaNk2VqCSIc5ilZHf/view?usp=sharing" target="_blank">
+                  <a href="https://drive.google.com/file/d/1rVNenrc4KMGMROUZaNk2VqCSIc5ilZHf/view?usp=sharing"
+                    target="_blank">
                     <img src="static/icons/resume.svg">
                   </a>
                 </li>
