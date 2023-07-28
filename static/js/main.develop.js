@@ -3616,8 +3616,8 @@ $(function () {
                         baseColor: '#ffffff',
                         scale: 2,
                         points: [
-                            {label: '                About', connections: [0], url: 'other_pages/index.html#about',cVParents:[0]},
-                            {label: '                Projects', connections: [0,1], url: 'other_pages/index.html#projects',cVParents:[3]},
+                            {label: '                About', connections: [0], url: 'other_pages/about.html',cVParents:[0]},
+                            {label: '                Projects', connections: [0,1], url: 'other_pages/projects.html',cVParents:[3]},
                         ]
                     }
                 ];
