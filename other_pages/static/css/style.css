@@ -1121,7 +1121,7 @@ body {
 
 .h5, .h6, .rich-text h5 {
     font-family: Mikro, Helvetica, Arial, sans-serif;
-    font-weight: 400
+    font-weight:400
 }
 
 .h1 {
@@ -8735,9 +8735,9 @@ html.no-dm_interactive_branding .story-hero[data-theme=applied] {
     }
 }
 
-.three-up--item:not(:first-of-type) .img-holder {
+/* .three-up--item:not(:first-of-type) .img-holder {
     display: none
-}
+} */
 
 @media screen and (min-width:64.0625em) {
     .three-up--item:not(:first-of-type) .img-holder {
@@ -8755,9 +8755,9 @@ html.no-dm_interactive_branding .story-hero[data-theme=applied] {
     }
 }
 
-.three-up--item:nth-of-type(2) {
+/* .three-up--item:nth-of-type(2) {
     text-align: right
-}
+} */
 
 @media screen and (min-width:48em) and (max-width:64em) {
     .three-up--item:nth-of-type(2) {
@@ -8771,9 +8771,9 @@ html.no-dm_interactive_branding .story-hero[data-theme=applied] {
     }
 }
 
-.three-up--item:nth-of-type(2) .three-up--header {
+/* .three-up--item:nth-of-type(2) .three-up--header {
     float: right
-}
+} */
 
 @media screen and (min-width:64.0625em) {
     .three-up--item:nth-of-type(2) .three-up--header {
