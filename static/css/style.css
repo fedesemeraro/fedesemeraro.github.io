@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+.full-width-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .ps-container {
     -ms-touch-action: auto;
     touch-action: auto;
