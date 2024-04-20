@@ -8,7 +8,7 @@
   <meta charset="utf-8" />
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  <link rel="shortcut icon" href="static/icons/fslogo.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="static/icons/fslogo.jpg" type="image/x-icon" />
   <link rel="stylesheet" type="text/css" href="static/css/style.css">
   <script src="static/js/modernizr-custom-f157f835f4.js"></script>
   <script>(function () { var fn = function () { window.DM_APP_ERROR = { timer: null, delay: 3e3, hasError: !1, errorFn: function (r) { console.error("DM_APP_ERROR", r), window.DM_APP_ERROR.hasError = !0 } }, window.DM_APP_ERROR.timer = setTimeout(function () { window.DM_APP_ERROR.hasError ? [].slice.call(document.querySelectorAll("[data-scroll-item]")).forEach(function (r) { return r.className += " show" }) : document.documentElement.className += " no-js" }, window.DM_APP_ERROR.delay), window.addEventListener("error", window.DM_APP_ERROR.errorFn, !1) }; fn(); })();</script>
@@ -174,17 +174,163 @@
             <h1 class="h5 uppercase left">Research</h1>
           </header>
           
+          <!-- arcjetCV 2024 -->
           <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
             <div class="cf container">
               <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
                 <div class="right three-up--image">
                   <div class="img-holder img-holder--16-9 img-holder--deepmind">
                     <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/puma.png" 
+                    src="static/img/arcjetCV.gif" 
+                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
+                    <div class="grad-map--applied grad-map--absolute ">
+                      <img class="img--object-fit img--object-width" 
+                      src="static/img/arcjetCV_background.jpg"
+                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
+                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
+                <header class="research-list--item-header">
+                  <div class="research-list--item-heading">
+                    <p class="research-list--item-category p--meta purple-2">arXiv 2024</p>
+                    <h1 class="h6">arcjetCV: an open-source software to analyze material ablation</h1>
+                    <p class="p--meta">
+                      Authors:
+                      <span class="grey-mid-light">
+                        Alexandre Quintart, Magnus Haw, Federico Semeraro
+                      </span>
+                    </p>
+                    <div class="rich-text">
+                      A python package to automate time-resolved measurements of heatshield material recession from arcjet videos via edge detection and tracking.
+                    </div>
+                  </div>
+                </header>
+                <footer class="research-list--item-footer">
+                  <a class="p--meta underline underline--blue-3 link--icon" href="https://github.com/magnus-haw/arcjetCV">
+                    > Github
+                  </a>
+                  <a class="p--meta underline underline--blue-3 link--icon" href="https://arxiv.org/abs/2404.11492">
+                    > Publication
+                  </a>
+                </footer>
+              </div>
+            </div>
+          </article>
+
+          <!-- tomosam 2023 -->
+          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
+            <div class="cf container">
+              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
+                <div class="right three-up--image">
+                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
+                    <img class="img--object-fit img--object-width three-up--image-untreated" 
+                    src="static/img/tomosam.jpg" 
+                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
+                    <div class="grad-map--applied grad-map--absolute ">
+                      <img class="img--object-fit img--object-width" 
+                      src="static/img/tomosam_background.jpg"
+                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
+                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
+                <header class="research-list--item-header">
+                  <div class="research-list--item-heading">
+                    <p class="research-list--item-category p--meta purple-2">arXiv 2023</p>
+                    <h1 class="h6">TomoSAM: Slicer's extension for 3D segmentation</h1>
+                    <p class="p--meta">
+                      Authors:
+                      <span class="grey-mid-light">
+                        Federico Semeraro, Alexandre Quintart, Sergio Fraile Izquierdo, Joseph C. Ferguson
+                      </span>
+                    </p>
+                    <div class="rich-text">
+                      An extension of Slicer using the Segment Anything Model (SAM) to aid the segmentation of 3D data from tomography or other imaging techniques.
+                    </div>
+                  </div>
+                </header>
+                <footer class="research-list--item-footer">
+                  <a class="p--meta underline underline--blue-3 link--icon" href="https://github.com/fsemerar/SlicerTomoSAM">
+                    > Github
+                  </a>
+                  <a class="p--meta underline underline--blue-3 link--icon" href="https://arxiv.org/abs/2306.08609">
+                    > Publication
+                  </a>
+                  <a class="p--meta underline underline--blue-3 link--icon" href="https://youtu.be/4nXCYrvBSjk">
+                    > Video Tutorial
+                  </a>
+                </footer>
+              </div>
+            </div>
+          </article>
+
+          <!-- permeability 2023 -->
+          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
+            <div class="cf container">
+              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
+                <div class="right three-up--image">
+                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
+                    <img class="img--object-fit img--object-width three-up--image-untreated" 
+                    src="static/img/permeability.jpg" 
+                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
+                    <div class="grad-map--applied grad-map--absolute ">
+                      <img class="img--object-fit img--object-width" 
+                      src="static/img/permeability_background.jpg"
+                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
+                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
+                <header class="research-list--item-header">
+                  <div class="research-list--item-heading">
+                    <p class="research-list--item-category p--meta purple-2">Computational Materials Science 2023</p>
+                    <h1 class="h6">Simulation toolkit for digital material characterization of large image-based microstructures</h1>
+                    <p class="p--meta">
+                      Authors:
+                      <span class="grey-mid-light">
+                        Pedro C.F. Lopes, Rafael S. Vianna, Victor W. Sapucaia, Federico Semeraro, Ricardo Leiderman, André M.B. Pereira
+                      </span>
+                    </p>
+                    <div class="rich-text">
+                      An image-based simulation CUDA toolkit for material characterization using Finite Element numerical methods to compute the
+                      effective thermal conductivity, elasticity, and permeability.
+                    </div>
+                  </div>
+                </header>
+                <footer class="research-list--item-footer">
+                  <a class="p--meta underline underline--blue-3 link--icon" href="https://github.com/cortezpedro/chfem">
+                    > Github
+                  </a>
+                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.sciencedirect.com/science/article/pii/S0927025623000150">
+                    > Publication
+                  </a>
+                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.youtube.com/watch?v=xgEEtXUCFmE&t=2214s">
+                    > Presentation
+                  </a>
+                </footer>
+              </div>
+            </div>
+          </article>
+
+          <!-- puma 2021 -->
+          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
+            <div class="cf container">
+              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
+                <div class="right three-up--image">
+                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
+                    <img class="img--object-fit img--object-width three-up--image-untreated" 
+                    src="static/img/puma.jpg" 
                     sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                     <div class="grad-map--applied grad-map--absolute ">  <!-- to control color: research=purple, applied=blue -->
                       <img class="img--object-fit img--object-width" 
-                      src="static/img/puma_background.png"
+                      src="static/img/puma_background.jpg"
                       sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                       <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
                     </div>
@@ -223,157 +369,18 @@
             </div>
           </article>
           
+          <!-- elasticity 2021 -->
           <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
             <div class="cf container">
               <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
                 <div class="right three-up--image">
                   <div class="img-holder img-holder--16-9 img-holder--deepmind">
                     <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/tomosam.png" 
+                    src="static/img/elasticity.jpg" 
                     sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                     <div class="grad-map--applied grad-map--absolute ">
                       <img class="img--object-fit img--object-width" 
-                      src="static/img/tomosam_background.png"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <p class="research-list--item-category p--meta purple-2">arXiv 2023</p>
-                    <h1 class="h6">TomoSAM: Slicer's extension for 3D segmentation</h1>
-                    <p class="p--meta">
-                      Authors:
-                      <span class="grey-mid-light">
-                        Federico Semeraro, Alexandre Quintart, Sergio Fraile Izquierdo, Joseph C. Ferguson
-                      </span>
-                    </p>
-                    <div class="rich-text">
-                      An extension of Slicer using the Segment Anything Model (SAM) to aid the segmentation of 3D data from tomography or other imaging techniques.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://github.com/fsemerar/SlicerTomoSAM">
-                    > Github
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://arxiv.org/abs/2306.08609">
-                    > Publication
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://youtu.be/4nXCYrvBSjk">
-                    > Video Tutorial
-                  </a>
-                </footer>
-              </div>
-            </div>
-          </article>
-          
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/orientation.png" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/orientation_background.png"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <p class="research-list--item-category p--meta purple-2">Computational Materials Science 2020</p>
-                    <h1 class="h6">Anisotropic analysis of fibrous and woven materials part 1: Estimation of local orientation</h1>
-                    <p class="p--meta">
-                      Authors:
-                      <span class="grey-mid-light">
-                        Federico Semeraro, Joseph C. Ferguson, Francesco Panerai, Robert J. King, Nagi N. Mansour
-                      </span>
-                    </p>
-                    <div class="rich-text">
-                      Three techniques to estimate the local orientation of fibrous microstructures obtained from tomography scanning: 
-                      a common image processing technique called structure tensor, a method based on artificial flux, and a novel ray-casting approach
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.sciencedirect.com/science/article/pii/S0927025620301221">
-                    > Publication
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.nas.nasa.gov/pubs/ams/2020/09-29-20.html">
-                    > Presentation
-                  </a>
-                </footer>
-              </div>
-            </div>
-          </article>
-          
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/conductivity.png" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/conductivity_background.png"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <p class="research-list--item-category p--meta purple-2">Computational Materials Science 2021</p>
-                    <h1 class="h6">Anisotropic analysis of fibrous and woven materials part 2: Computation of effective conductivity</h1>
-                    <p class="p--meta">
-                      Authors:
-                      <span class="grey-mid-light">
-                        Federico Semeraro, Joseph C. Ferguson, Marcos Acin, Francesco Panerai, Nagi N. Mansour
-                      </span>
-                    </p>
-                    <div class="rich-text">
-                      Numerical finite volume method to compute the effective thermal conductivity of 3D microstructures obtained from tomograhy,
-                      accounting for the anisotropy of the constituent phases.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.sciencedirect.com/science/article/pii/S092702562030447X">
-                    > Publication
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://nescacademy.nasa.gov/video/208b77a46c83454fa24d9218646a39c61d">
-                    > Presentation
-                  </a>
-                </footer>
-              </div>
-            </div>
-          </article>
-          
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/elasticity.png" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/elasticity_background.png"
+                      src="static/img/elasticity_background.jpg"
                       sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                       <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
                     </div>
@@ -409,17 +416,18 @@
             </div>
           </article>
           
+          <!-- conductivity 2021 -->
           <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
             <div class="cf container">
               <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
                 <div class="right three-up--image">
                   <div class="img-holder img-holder--16-9 img-holder--deepmind">
                     <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/permeability.png" 
+                    src="static/img/conductivity.jpg" 
                     sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                     <div class="grad-map--applied grad-map--absolute ">
                       <img class="img--object-fit img--object-width" 
-                      src="static/img/permeability_background.png"
+                      src="static/img/conductivity_background.jpg"
                       sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                       <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
                     </div>
@@ -429,28 +437,72 @@
               <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
                 <header class="research-list--item-header">
                   <div class="research-list--item-heading">
-                    <p class="research-list--item-category p--meta purple-2">Computational Materials Science 2023</p>
-                    <h1 class="h6">Simulation toolkit for digital material characterization of large image-based microstructures</h1>
+                    <p class="research-list--item-category p--meta purple-2">Computational Materials Science 2021</p>
+                    <h1 class="h6">Anisotropic analysis of fibrous and woven materials part 2: Computation of effective conductivity</h1>
                     <p class="p--meta">
                       Authors:
                       <span class="grey-mid-light">
-                        Pedro C.F. Lopes, Rafael S. Vianna, Victor W. Sapucaia, Federico Semeraro, Ricardo Leiderman, André M.B. Pereira
+                        Federico Semeraro, Joseph C. Ferguson, Marcos Acin, Francesco Panerai, Nagi N. Mansour
                       </span>
                     </p>
                     <div class="rich-text">
-                      An image-based simulation CUDA toolkit for material characterization using Finite Element numerical methods to compute the
-                      effective thermal conductivity, elasticity, and permeability.
+                      Numerical finite volume method to compute the effective thermal conductivity of 3D microstructures obtained from tomograhy,
+                      accounting for the anisotropy of the constituent phases.
                     </div>
                   </div>
                 </header>
                 <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://gitlab.com/cortezpedro/chfem_gpu">
-                    > Gitlab
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.sciencedirect.com/science/article/pii/S0927025623000150">
+                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.sciencedirect.com/science/article/pii/S092702562030447X">
                     > Publication
                   </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.youtube.com/watch?v=xgEEtXUCFmE&t=2214s">
+                  <a class="p--meta underline underline--blue-3 link--icon" href="https://nescacademy.nasa.gov/video/208b77a46c83454fa24d9218646a39c61d">
+                    > Presentation
+                  </a>
+                </footer>
+              </div>
+            </div>
+          </article>
+          
+          <!-- orientation 2020 -->
+          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
+            <div class="cf container">
+              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
+                <div class="right three-up--image">
+                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
+                    <img class="img--object-fit img--object-width three-up--image-untreated" 
+                    src="static/img/orientation.jpg" 
+                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
+                    <div class="grad-map--applied grad-map--absolute ">
+                      <img class="img--object-fit img--object-width" 
+                      src="static/img/orientation_background.jpg"
+                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
+                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
+                <header class="research-list--item-header">
+                  <div class="research-list--item-heading">
+                    <p class="research-list--item-category p--meta purple-2">Computational Materials Science 2020</p>
+                    <h1 class="h6">Anisotropic analysis of fibrous and woven materials part 1: Estimation of local orientation</h1>
+                    <p class="p--meta">
+                      Authors:
+                      <span class="grey-mid-light">
+                        Federico Semeraro, Joseph C. Ferguson, Francesco Panerai, Robert J. King, Nagi N. Mansour
+                      </span>
+                    </p>
+                    <div class="rich-text">
+                      Three techniques to estimate the local orientation of fibrous microstructures obtained from tomography scanning: 
+                      a common image processing technique called structure tensor, a method based on artificial flux, and a novel ray-casting approach
+                    </div>
+                  </div>
+                </header>
+                <footer class="research-list--item-footer">
+                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.sciencedirect.com/science/article/pii/S0927025620301221">
+                    > Publication
+                  </a>
+                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.nas.nasa.gov/pubs/ams/2020/09-29-20.html">
                     > Presentation
                   </a>
                 </footer>
@@ -474,11 +526,11 @@
                 <div class="right three-up--image">
                   <div class="img-holder img-holder--16-9 img-holder--deepmind">
                     <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/nerf.png" 
+                    src="static/img/nerf.jpg" 
                     sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                     <div class="grad-map--applied grad-map--absolute ">
                       <img class="img--object-fit img--object-width" 
-                      src="static/img/nerf_background.png"
+                      src="static/img/nerf_background.jpg"
                       sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                       <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
                     </div>
@@ -520,11 +572,11 @@
                 <div class="right three-up--image">
                   <div class="img-holder img-holder--16-9 img-holder--deepmind">
                     <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/stereo.png" 
+                    src="static/img/stereo.jpg" 
                     sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                     <div class="grad-map--applied grad-map--absolute ">
                       <img class="img--object-fit img--object-width" 
-                      src="static/img/stereo.png"
+                      src="static/img/stereo.jpg"
                       sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                       <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
                     </div>
@@ -558,11 +610,11 @@
                 <div class="right three-up--image">
                   <div class="img-holder img-holder--16-9 img-holder--deepmind">
                     <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/stabilizer.png" 
+                    src="static/img/stabilizer.jpg" 
                     sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                     <div class="grad-map--applied grad-map--absolute ">
                       <img class="img--object-fit img--object-width" 
-                      src="static/img/stabilizer.png"
+                      src="static/img/stabilizer.jpg"
                       sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                       <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
                     </div>
@@ -603,11 +655,11 @@
                 <div class="right three-up--image">
                   <div class="img-holder img-holder--16-9 img-holder--deepmind">
                     <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/blender2dirsig.png" 
+                    src="static/img/blender2dirsig.jpg" 
                     sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                     <div class="grad-map--applied grad-map--absolute ">
                       <img class="img--object-fit img--object-width" 
-                      src="static/img/blender2dirsig_background.png"
+                      src="static/img/blender2dirsig_background.jpg"
                       sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                       <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
                     </div>
@@ -639,11 +691,11 @@
                 <div class="right three-up--image">
                   <div class="img-holder img-holder--16-9 img-holder--deepmind">
                     <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/copper.png" 
+                    src="static/img/copper.jpg" 
                     sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                     <div class="grad-map--applied grad-map--absolute ">
                       <img class="img--object-fit img--object-width" 
-                      src="static/img/copper_background.png"
+                      src="static/img/copper_background.jpg"
                       sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                       <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
                     </div>
@@ -678,11 +730,11 @@
                 <div class="right three-up--image">
                   <div class="img-holder img-holder--16-9 img-holder--deepmind">
                     <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/lima.png" 
+                    src="static/img/lima.jpg" 
                     sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                     <div class="grad-map--applied grad-map--absolute ">
                       <img class="img--object-fit img--object-width" 
-                      src="static/img/lima.png"
+                      src="static/img/lima.jpg"
                       sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                       <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
                     </div>
@@ -725,11 +777,11 @@
                 <div class="right three-up--image">
                   <div class="img-holder img-holder--16-9 img-holder--deepmind">
                     <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/nemesys.png" 
+                    src="static/img/nemesys.jpg" 
                     sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                     <div class="grad-map--applied grad-map--absolute ">
                       <img class="img--object-fit img--object-width" 
-                      src="static/img/nemesys.png"
+                      src="static/img/nemesys.jpg"
                       sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                       <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
                     </div>
@@ -761,11 +813,11 @@
                 <div class="right three-up--image">
                   <div class="img-holder img-holder--16-9 img-holder--deepmind">
                     <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/ghana.png" 
+                    src="static/img/ghana.jpg" 
                     sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                     <div class="grad-map--applied grad-map--absolute ">
                       <img class="img--object-fit img--object-width" 
-                      src="static/img/ghana.png"
+                      src="static/img/ghana.jpg"
                       sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
                       <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
                     </div>
