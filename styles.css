@@ -471,4 +471,17 @@ img[src$=".svg"] {
   .space-y-8 {
     gap: 1.25rem;
   }
+
+  /* Disable particles and dark gradient on mobile */
+  .project-image-wrapper .project-dark-overlay,
+  .project-image-simple .project-dark-overlay,
+  .project-image-wrapper .project-canvas-overlay,
+  .project-image-simple .project-canvas-overlay {
+    display: none !important;
+  }
+
+  /* Enable image swap on click for mobile */
+  .project-image-wrapper.clicked .project-image-main {
+    opacity: 0;
+  }
 }

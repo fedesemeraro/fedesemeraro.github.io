@@ -300,3 +300,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// Mobile click handler for project images
+function handleMobileImageClick() {
+  // Only apply on mobile devices
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll('.project-image-wrapper, .project-image-simple').forEach(wrapper => {
+      wrapper.addEventListener('click', function() {
+        this.classList.toggle('clicked');
+      });
+    });
+  }
+}
+
+// Initialize mobile click handlers
+document.addEventListener('DOMContentLoaded', handleMobileImageClick);
+
+// Re-initialize on window resize
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    // Remove clicked class when switching to desktop
+    document.querySelectorAll('.project-image-wrapper, .project-image-simple').forEach(wrapper => {
+      wrapper.classList.remove('clicked');
+    });
+  }
+});
