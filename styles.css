@@ -356,3 +356,114 @@ img[src$=".svg"] {
   gap: 1.5rem;
   align-items: center;
 }
+
+/* Mobile responsive text scaling */
+@media (max-width: 768px) {
+  /* Center profile image and name section */
+  #about .flex.flex-col.items-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Shift bio text right to show emojis on mobile */
+  #about .flex-1 {
+    padding-left: 1.5rem;
+  }
+
+  /* Scale down bio text on mobile */
+  #about .text-lg {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  /* Adjust spacing for better mobile fit */
+  #about .space-y-4 > p {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Scale down all headings */
+  h2 {
+    font-size: 1.75rem !important;
+  }
+
+  h3 {
+    font-size: 1.25rem !important;
+  }
+
+  h4 {
+    font-size: 1rem !important;
+  }
+
+  /* Scale down all card text */
+  .glass p {
+    font-size: 0.8rem;
+  }
+
+  .glass .text-sm {
+    font-size: 0.7rem;
+  }
+
+  .glass .text-lg {
+    font-size: 0.9rem;
+  }
+
+  /* Scale down CV cards */
+  .cv-logo {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .cv-card {
+    padding: 1rem !important;
+  }
+
+  /* Scale down project cards */
+  .project-image-wrapper,
+  .project-image-simple {
+    aspect-ratio: 16 / 9;
+  }
+
+  /* Scale down buttons */
+  .glass a[class*="inline-flex"] {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    height: auto;
+  }
+
+  /* Reduce section padding */
+  .section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  /* Scale down profile image */
+  #about .w-60 {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  /* Scale down social icons */
+  #about .w-6 {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  /* Scale down name */
+  #about .text-xl {
+    font-size: 1.1rem;
+  }
+
+  /* Reduce spacing in cards */
+  .space-y-4 {
+    gap: 0.75rem;
+  }
+
+  .space-y-6 {
+    gap: 1rem;
+  }
+
+  .space-y-8 {
+    gap: 1.25rem;
+  }
+}
