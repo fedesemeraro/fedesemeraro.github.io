@@ -1,0 +1,358 @@
+/* Custom theme and glass morphism */
+:root {
+  --primary: 217.2 91.2% 59.8%;
+  --background: 0 0% 0%;
+  --foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --border: 217.2 32.6% 17.5%;
+}
+
+body {
+  background-color: #000000;
+  color: hsl(var(--foreground));
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.glass {
+  background-color: rgba(23, 37, 84, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid hsl(var(--border) / 0.5);
+}
+
+.text-primary {
+  color: hsl(var(--primary));
+}
+
+.bg-primary {
+  background-color: hsl(var(--primary));
+}
+
+.text-muted-foreground {
+  color: hsl(var(--muted-foreground));
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+/* Keep the about section centered as hero section */
+#about {
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Static background for canvas */
+.bg-animated {
+  background: #000000;
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: hsl(var(--primary));
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: hsl(var(--primary));
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Make SVG icons white */
+img[src$=".svg"] {
+  filter: brightness(0) invert(1);
+}
+
+/* Timeline animation */
+@keyframes progress {
+  from { height: 0%; }
+  to { height: 100%; }
+}
+
+.animate-progress {
+  animation: progress 2s ease-out forwards;
+}
+
+/* CV item animations */
+.cv-item {
+  opacity: 0;
+  transform: translateX(-4rem);
+  animation: slideIn 0.7s ease-out forwards;
+}
+
+.cv-item:nth-child(1) { animation-delay: 0.1s; }
+.cv-item:nth-child(2) { animation-delay: 0.2s; }
+.cv-item:nth-child(3) { animation-delay: 0.3s; }
+.cv-item:nth-child(4) { animation-delay: 0.4s; }
+.cv-item:nth-child(5) { animation-delay: 0.5s; }
+.cv-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Timeline dot fill on hover */
+.group:hover .timeline-dot {
+  background-color: hsl(var(--primary)) !important;
+}
+
+/* Project image hover effect */
+.project-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  aspect-ratio: 9 / 5;
+  background-color: white;
+}
+
+.project-image-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.project-image-main {
+  z-index: 4;
+}
+
+.project-image-background {
+  z-index: 1;
+  opacity: 1;
+}
+
+.project-dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.project-canvas-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.project-image-wrapper:hover .project-image-main {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.project-image-wrapper:hover .project-dark-overlay {
+  opacity: 1;
+}
+
+.project-image-wrapper:hover .project-canvas-overlay {
+  opacity: 1;
+}
+
+/* Simple image wrapper for projects without hover effects */
+.project-image-simple {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  aspect-ratio: 9 / 5;
+  background-color: white;
+}
+
+.project-image-simple img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  z-index: 1;
+}
+
+.project-image-simple .project-dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.project-image-simple .project-canvas-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.project-image-simple:hover .project-dark-overlay {
+  opacity: 1;
+}
+
+.project-image-simple:hover .project-canvas-overlay {
+  opacity: 1;
+}
+
+/* PDF Modal Overlay */
+.pdf-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.pdf-modal.active {
+  display: flex;
+}
+
+.pdf-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 90vh;
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.pdf-modal-close {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.pdf-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.pdf-modal iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Project button fill effect on hover */
+.glass a[class*="inline-flex"] {
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  border-color: hsl(var(--primary));
+  color: hsl(var(--primary));
+  transition: color 0.3s ease;
+}
+
+.glass a[class*="inline-flex"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(var(--primary));
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.glass a[class*="inline-flex"]:hover::before {
+  transform: translateY(0);
+}
+
+.glass a[class*="inline-flex"]:hover {
+  color: #000000;
+  border-color: hsl(var(--primary));
+}
+
+/* CV card logo styling */
+.cv-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: none !important;
+}
+
+.cv-card-content {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}

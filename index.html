@@ -1,1024 +1,839 @@
 <!DOCTYPE html>
-<html class="no-js">
-
+<html lang="en" class="scroll-smooth">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Federico Semeraro</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta charset="utf-8" />
-  <meta name="description" content="" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  <link rel="shortcut icon" href="static/icons/fslogo.png" type="image/x-icon" />
-  <link rel="stylesheet" type="text/css" href="static/css/style.css">
-  <script src="static/js/modernizr-custom-f157f835f4.js"></script>
-  <script>(function () { var fn = function () { window.DM_APP_ERROR = { timer: null, delay: 3e3, hasError: !1, errorFn: function (r) { console.error("DM_APP_ERROR", r), window.DM_APP_ERROR.hasError = !0 } }, window.DM_APP_ERROR.timer = setTimeout(function () { window.DM_APP_ERROR.hasError ? [].slice.call(document.querySelectorAll("[data-scroll-item]")).forEach(function (r) { return r.className += " show" }) : document.documentElement.className += " no-js" }, window.DM_APP_ERROR.delay), window.addEventListener("error", window.DM_APP_ERROR.errorFn, !1) }; fn(); })();</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="static/js/main.js" defer></script>
+  <meta name="description" content="Federico Semeraro's personal website - CV/ML Engineer at Apple specializing in graphics, rendering, and 3D generative modeling">
+  <link rel="shortcut icon" href="static/fslogo.png" type="image/x-icon">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="sector-landing">
-  <div data-dm-tmpl="dm-app" data-dm-app data-app-model='{"apiBasePath":"api", "basePath":"","homePath":"","routeBlacklist":[]}'>
-    <header class="header has-hero" role="banner" data-dm-tmpl="header" data-header>
-      <div class="heading--loader-inner" data-ib-target></div>
-      <div class="menu bg-grey-light" data-dm-tmpl="menu"></div>
-    </header>
-    <main class="wrapper has-hero" role="main" data-dm-tmpl="wrapper" data-wrapper>
-      <div class="page page-sector-landing" data-dm-page="sector-landing" data-context="deepmind">
-        
-        <section class="cf section--block story-hero " data-dm-tmpl="story-hero" data-theme="applied" data-scroll-item>
-          <div class="story-hero--item" data-story-item data-story-item-state="active">
-            <article class="container cf story-hero--item-text" data-message-item>
-              <header class="g-sm-col-4 g-md-col-5 g-lg-col-8 g-lg-push-1">
-                <h1 class="h1 white">
-                  Federico Semeraro
-                </h1>
-              </header>
-            </article>
+<body class="bg-animated">
+  <!-- Animated Canvas Background -->
+  <canvas id="canvas" class="fixed inset-0 -z-10 pointer-events-none"></canvas>
+
+  <!-- Navigation -->
+  <nav class="fixed top-4 left-1/2 -translate-x-1/2 glass px-6 py-3 rounded-full z-50 max-w-4xl">
+    <ul class="flex space-x-6 text-sm font-medium">
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#cv" class="nav-link">CV</a></li>
+      <li><a href="#awards" class="nav-link">Awards</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+    </ul>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container mx-auto max-w-6xl px-6">
+      <div class="flex flex-col md:flex-row gap-12 items-start fade-in">
+        <!-- Profile Image and Social Links -->
+        <div class="flex flex-col items-center">
+          <div class="w-60 h-60 rounded-full overflow-hidden glass">
+            <img src="static/fs.jpg" alt="Federico Semeraro" class="w-full h-full object-cover">
           </div>
-          <div class="story-hero--item story-hero--item-ib" data-ib-target data-story-item-state="active"></div>
-        </section>
-        
-        <!-- ABOUT ME -->
-        <div class="cf repositioner">
-          <div data-dm-tmpl="rich-text" data-collapse="no">
-            <div class="g-sm-col-4 g-lg-col-7 g-lg-push-1">
-              <div class="rich-text">
-                <p>
-                  <ul style="list-style-type: '👋🏻   ';">
-                    <li>
-                      Hello and welcome to my portfolio!
-                    </li>
-                  </ul>
-                </p>
-                <p>
-                  <ul style="list-style-type: '   ';">
-                    <li>
-                      I am a CV/ML Engineer within Apple's Video Computer Vision Group, specializing in graphics, rendering, and 3D generative modeling.
-                    </li>
-                  </ul>
-                </p>
-                <p>
-                  <ul style="list-style-type: '🚀   ';">
-                    <li>
-                      Prior to this role, I worked as a Research Engineer at NASA Ames for seven years, where I co-led the development of PuMA, 
-                      the 2022 NASA Software of the Year. Research efforts primarily focused on the segmentation and analysis of CT data 
-                      to predict material properties for heatshields.
-                    </li>
-                  </ul>
-                </p>
-                <p>
-                  <ul style="list-style-type: '👨🏻‍💻   ';">
-                    <li>
-                      My past experiences include internships at various companies such as Airbus, Earth-i, and Planet Labs, which shaped a strong passion for computer vision. 
-                      Projects ranged from analyzing aircraft movements, to extracting insights from satellite imagery, to natural scene generation. 
-                      I am well-versed in several coding languages, especially Python, and currently extending my knowledge of PyTorch while implementing the latest deep learning techniques.
-                    </li>
-                  </ul>
-                </p>
-                <p>
-                  <ul style="list-style-type: '📚   ';">
-                    <li>
-                      Academically, I completed a Master in Computer Science with a specialization in Machine Learning from the Georgia Institute of Technology in August 2023. 
-                      I graduated from Imperial College London in June 2018 with a Master in Aerospace Engineering.
-                    </li>
-                  </ul>
-                </p>
-                <p>
-                  <ul style="list-style-type: '🎾   ';">
-                    <li>
-                      In my free time, you can find me on a tennis court, soccer field, or hiking somewhere around the Bay Area.
-                    </li>
-                  </ul>
-                </p>
-                <p>
-                  <ul style="list-style-type: '☕   ';">
-                    <li>
-                      Whether it's to discuss new ideas, opportunities, or even just chat over a cup of coffee, please don't hesitate to reach out!
-                    </li>
-                  </ul>
-                </p>
-              </div>
-            </div>
+          <p class="text-center mt-4 font-medium text-xl">Federico Semeraro</p>
+          <div class="flex gap-2 mt-4 flex-wrap justify-center">
+            <a href="https://www.linkedin.com/in/fedesemeraro" target="_blank" class="glass p-2 rounded-lg hover:scale-110 transition-transform">
+              <img src="static/linkedin.svg" class="w-6 h-6" alt="LinkedIn">
+            </a>
+            <a href="https://www.instagram.com/fedesemeraro" target="_blank" class="glass p-2 rounded-lg hover:scale-110 transition-transform">
+              <img src="static/instagram.svg" class="w-6 h-6" alt="Instagram">
+            </a>
+            <a href="mailto:federicosemeraro94@gmail.com" target="_blank" class="glass p-2 rounded-lg hover:scale-110 transition-transform">
+              <img src="static/email.svg" class="w-6 h-6" alt="Email">
+            </a>
           </div>
-          <section style="margin-top: 50px;" class="cf related-inline container" data-dm-tmpl="related-inline">
-            <article class="three-up--item three-up--item--applied g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block" data-dm-tmpl="three-up-item">
-              <div class="flex-container" style="display: flex; flex-direction: column; align-items: center;">  <!-- Add this line -->
-                <div class="three-up--image">
-                  <div class="img-holder img-holder--1-1 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated"
-                    src="static/img/fs.jpg" alt=""
-                    sizes="(max-width: 768px) 100%, 100%">
-                    <img class="img--object-fit img--object-width"
-                    src="static/img/fs.jpg"
-                    alt="Federico Semeraro" sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                  </div>
-                </div>
-                <div class="social-items footer--social-items" style="margin-top: 5px;">
-                  <ul class="unstyled" style="display: flex; justify-content: center;">
-                    <li class="social-item" style="margin: 13px;">
-                      <a href="https://drive.google.com/file/d/1rVNenrc4KMGMROUZaNk2VqCSIc5ilZHf/view?usp=sharing" target="_blank">
-                        <img src="static/icons/resume.svg">
-                      </a>
-                    </li>
-                    <li class="social-item" style="margin: 13px;">
-                      <a href="https://www.linkedin.com/in/fedesemeraro" target="_blank">
-                        <img src="static/icons/linkedin.svg">
-                      </a>
-                    </li>
-                    <li class="social-item" style="margin: 13px;">
-                      <a href="https://www.instagram.com/fedesemeraro" target="_blank">
-                        <img src="static/icons/instagram.svg">
-                      </a>
-                    </li>
-                    <li class="social-item" style="margin: 13px;">
-                      <a href="https://github.com/fedesemeraro" target="_blank">
-                        <img src="static/icons/github.svg">
-                      </a>
-                    </li>
-                    <li class="social-item" style="margin: 13px;">
-                      <a href="https://scholar.google.com/citations?user=DMuVhnkAAAAJ&hl" target="_blank">
-                        <img src="static/icons/gscholar.svg">
-                      </a>
-                    </li>
-                    <li class="social-item" style="margin: 13px;">
-                      <a href="mailto:federicosemeraro94@gmail.com" target="_blank">
-                        <img src="static/icons/email.svg">
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </article>
-          </section>
         </div>
 
-        <div class="cf repositioner">
-
-          <header style="margin-top: 60px;" class="section--header g-sm-col-4 g-lg-col-11 g-lg-push-1">
-            <h1 class="h4 uppercase left">Career Journey</h1>
-          </header>
-
-          <section class="full-width-image">
-            <img src="static/img/career.jpg">
-          </section>
+        <!-- Bio -->
+        <div class="flex-1 space-y-6">
+          <div class="space-y-4 text-lg text-muted-foreground">
+            <p>
+              <ul style="list-style-type: '👋🏻   ';">
+                <li>Hello and welcome to my portfolio!</li>
+              </ul>
+            </p>
+            <p>
+              <ul style="list-style-type: '   ';">
+                <li>I am a CV/ML Engineer within Apple's Video Computer Vision Group, specializing in graphics, rendering, and 3D generative modeling.</li>
+              </ul>
+            </p>
+            <p>
+              <ul style="list-style-type: '🚀   ';">
+                <li>Prior to this role, I worked as a Research Engineer at NASA Ames for seven years, where I co-led the development of PuMA, the 2022 NASA Software of the Year. Research efforts primarily focused on the segmentation and analysis of CT data to predict material properties for heatshields.</li>
+              </ul>
+            </p>
+            <p>
+              <ul style="list-style-type: '👨🏻‍💻   ';">
+                <li>My past experiences include internships at various companies such as Airbus, Earth-i, and Planet Labs, which shaped a strong passion for computer vision. Projects ranged from analyzing aircraft movements, to extracting insights from satellite imagery, to natural scene generation. I am well-versed in several coding languages, especially Python, and currently extending my knowledge of PyTorch while implementing the latest deep learning techniques.</li>
+              </ul>
+            </p>
+            <p>
+              <ul style="list-style-type: '📚   ';">
+                <li>Academically, I completed a Master in Computer Science with a specialization in Machine Learning from the Georgia Institute of Technology in August 2023. I graduated from Imperial College London in June 2018 with a Master in Aerospace Engineering.</li>
+              </ul>
+            </p>
+            <p>
+              <ul style="list-style-type: '🎾   ';">
+                <li>In my free time, you can find me on a tennis court, soccer field, or hiking somewhere around the Bay Area.</li>
+              </ul>
+            </p>
+            <p>
+              <ul style="list-style-type: '☕   ';">
+                <li>Whether it's to discuss new ideas, opportunities, or even just chat over a cup of coffee, please don't hesitate to reach out!</li>
+              </ul>
+            </p>
+          </div>
         </div>
-        
-        <!-- PROJECTS -->
-        <div style="margin-top: 60px;" class="listing--list-items">
-          
-          <header class="section--header g-sm-col-4 g-lg-col-11 g-lg-push-1">
-            <h1 class="h4 uppercase left">Projects</h1>
-          </header>
-          
-          <header class="section--header g-sm-col-4 g-lg-col-11 g-lg-push-1">
-            <h1 class="h5 uppercase left">Research</h1>
-          </header>
+      </div>
 
-          <!-- dsplats -->
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/dsplats.png" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/dsplats_background.png"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
+      <!-- Skills Box -->
+      <div class="glass p-8 rounded-lg mt-16 fade-in">
+        <h3 class="text-2xl font-semibold mb-6">Skills</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="text-primary font-semibold mb-3">Core Competencies</h4>
+            <p class="text-muted-foreground">Machine Learning Research; Graphics; Neural Rendering; Data Structures and Algorithms; Cluster Computing; Software Development; Testing, Maintaining, Launching Software Products</p>
+          </div>
+          <div>
+            <h4 class="text-primary font-semibold mb-3">Tech Stack</h4>
+            <p class="text-muted-foreground">PyTorch, Git, pip/conda, Bash, CI/CD, Qt, OpenMP, CUDA, Metal, USD, Blender, SQL, Docker, AWS</p>
+          </div>
+          <div>
+            <h4 class="text-primary font-semibold mb-3">Coding Languages</h4>
+            <p class="text-muted-foreground">Python (Proficient), Swift, C/C++, Javascript (Familiar)</p>
+          </div>
+          <div>
+            <h4 class="text-primary font-semibold mb-3">Languages</h4>
+            <p class="text-muted-foreground">Italian (Native), English, Spanish (Fluent)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum Vitae Section -->
+  <section id="cv" class="section">
+    <div class="container mx-auto max-w-6xl px-6 fade-in">
+      <div class="flex justify-between items-center mb-12">
+        <h2 class="text-4xl font-bold">Curriculum Vitae</h2>
+        <button onclick="openPdfModal()" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 gap-2">
+          View CV
+        </button>
+      </div>
+
+      <!-- Work Experience -->
+      <div class="mb-16">
+        <h3 class="text-2xl font-semibold mb-8 text-primary">Work Experience</h3>
+        <div class="relative space-y-8">
+          <!-- Timeline line -->
+          <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-primary/20">
+            <div class="absolute left-0 top-0 w-full bg-primary origin-top animate-progress" style="height: 100%;"></div>
+          </div>
+
+          <!-- Apple -->
+          <div class="relative pl-8 cv-item group">
+            <div class="timeline-dot absolute left-0 w-4 h-4 -translate-x-1.5 translate-y-1.5 rounded-full border-2 border-primary transition-all duration-300 group-hover:scale-150 z-10" style="background-color: #000000;"></div>
+            <div class="glass p-6 rounded-lg cv-card transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-primary/5 cursor-pointer">
+              <div class="cv-card-content">
+                <img src="static/apple.png" alt="Apple" class="cv-logo">
+                <div class="flex-1 space-y-4">
+                  <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                    <div>
+                      <h4 class="text-xl font-semibold">Computer Vision and Machine Learning Engineer</h4>
+                      <p class="text-primary">Apple</p>
                     </div>
+                    <span class="text-muted-foreground mt-2 md:mt-0">Oct 2024 – Present</span>
                   </div>
+                  <p class="text-muted-foreground">Working in the Algorithms team of the Video Computer Vision Group, specializing in graphics, rendering, and 3D gen-AI</p>
                 </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <p class="research-list--item-category p--meta purple-2">Apple MLR 2025</p>
-                    <h1 class="h6">DSplats: 3D Generation by Denoising Splats-Based Multiview Diffusion Models</h1>
-                    <p class="p--meta">
-                      Authors:
-                      <span class="grey-mid-light">
-                        Kevin Miao, Harsh Agrawal, Qihang Zhang, Federico Semeraro, Marco Cavallo, Jiatao Gu, Alexander Toshev
-                      </span>
-                    </p>
-                    <div class="rich-text">
-                      Analysis and simulation of time-resolved X-ray microtomography revealing oxidation-induced degradation in carbon fiber heat shields, impacting material properties and aerospace design.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://machinelearning.apple.com/research/dsplats-3d-generation">
-                    > Publication
-                  </a>
-                </footer>
               </div>
             </div>
-          </article>
+          </div>
 
-          <!-- 4dmct -->
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/4dmct.png" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/4dmct_background.png"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
+          <!-- NASA -->
+          <div class="relative pl-8 cv-item group">
+            <div class="timeline-dot absolute left-0 w-4 h-4 -translate-x-1.5 translate-y-1.5 rounded-full border-2 border-primary transition-all duration-300 group-hover:scale-150 z-10" style="background-color: #000000;"></div>
+            <div class="glass p-6 rounded-lg cv-card transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-primary/5 cursor-pointer">
+              <div class="cv-card-content">
+                <img src="static/nasa.png" alt="NASA" class="cv-logo">
+                <div class="flex-1 space-y-4">
+                  <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                    <div>
+                      <h4 class="text-xl font-semibold">Research Engineer</h4>
+                      <p class="text-primary">NASA Ames Research Center</p>
                     </div>
+                    <span class="text-muted-foreground mt-2 md:mt-0">Jan 2018 – Oct 2024</span>
                   </div>
+                  <p class="text-muted-foreground">Led the development of ML tools and computational physics methods for the analysis of heatshield materials via CT data</p>
                 </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <p class="research-list--item-category p--meta purple-2">Advanced Materials 2025</p>
-                    <h1 class="h6">Carbon Fiber Oxidation in 4D</h1>
-                    <p class="p--meta">
-                      Authors:
-                      <span class="grey-mid-light">
-                        Benjamin M. Ringel, Federico Semeraro, Joseph C. Ferguson, Harold S. Barnard, Bruno Dias, Christian M. Schlepütz, Edward S. Barnard, Sam Schickler, Kara Levy, Shawn Shacterman, Talia Benioff-White, Julian Davis, Alastair A. MacDowell, Dilworth Y. Parkinson, Francesco Panerai
-                      </span>
-                    </p>
-                    <div class="rich-text">
-                      Analysis and simulation of time-resolved X-ray microtomography revealing oxidation-induced degradation in carbon fiber heat shields, impacting material properties and aerospace design.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202502007">
-                    > Publication
-                  </a>
-                </footer>
               </div>
             </div>
-          </article>
+          </div>
 
-          <!-- permeability -->
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/permeability.png" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/permeability_background.png"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
+          <!-- Planet Labs -->
+          <div class="relative pl-8 cv-item group">
+            <div class="timeline-dot absolute left-0 w-4 h-4 -translate-x-1.5 translate-y-1.5 rounded-full border-2 border-primary transition-all duration-300 group-hover:scale-150 z-10" style="background-color: #000000;"></div>
+            <div class="glass p-6 rounded-lg cv-card transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-primary/5 cursor-pointer">
+              <div class="cv-card-content">
+                <img src="static/planet.png" alt="Planet Labs" class="cv-logo">
+                <div class="flex-1 space-y-4">
+                  <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                    <div>
+                      <h4 class="text-xl font-semibold">Computer Graphics Intern</h4>
+                      <p class="text-primary">Planet Labs</p>
                     </div>
+                    <span class="text-muted-foreground mt-2 md:mt-0">Jun 2022 – Sep 2022</span>
                   </div>
+                  <p class="text-muted-foreground">Automated the procedural generation of 3D synthetic Blender scenes to test camera rendering models</p>
                 </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <p class="research-list--item-category p--meta purple-2">CMAME 2025</p>
-                    <h1 class="h6">Enabling FEM-based absolute permeability estimation in giga-voxel porous media with a single GPU</h1>
-                    <p class="p--meta">
-                      Authors:
-                      <span class="grey-mid-light">
-                        Pedro Cortez Fetter Lopes, Federico Semeraro, André Maués Brabo Pereira, Ricardo Leiderman
-                      </span>
-                    </p>
-                    <div class="rich-text">
-                      Open-source lightweight GPU solvers for FEM simulation of Stokes flow in porous media.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.sciencedirect.com/science/article/abs/pii/S0045782524008132?via%3Dihub">
-                    > Publication
-                  </a>
-                </footer>
               </div>
             </div>
-          </article>
+          </div>
+
+          <!-- Earth-i -->
+          <div class="relative pl-8 cv-item group">
+            <div class="timeline-dot absolute left-0 w-4 h-4 -translate-x-1.5 translate-y-1.5 rounded-full border-2 border-primary transition-all duration-300 group-hover:scale-150 z-10" style="background-color: #000000;"></div>
+            <div class="glass p-6 rounded-lg cv-card transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-primary/5 cursor-pointer">
+              <div class="cv-card-content">
+                <img src="static/earthi.png" alt="Earth-i" class="cv-logo">
+                <div class="flex-1 space-y-4">
+                  <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                    <div>
+                      <h4 class="text-xl font-semibold">Data Analytics Intern</h4>
+                      <p class="text-primary">Earth-i</p>
+                    </div>
+                    <span class="text-muted-foreground mt-2 md:mt-0">Jul 2017 – Sep 2017</span>
+                  </div>
+                  <p class="text-muted-foreground">Trained deep learning models to analyze aerial imagery and predict hard-commodity production rates</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rolls-Royce -->
+          <div class="relative pl-8 cv-item group">
+            <div class="timeline-dot absolute left-0 w-4 h-4 -translate-x-1.5 translate-y-1.5 rounded-full border-2 border-primary transition-all duration-300 group-hover:scale-150 z-10" style="background-color: #000000;"></div>
+            <div class="glass p-6 rounded-lg cv-card transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-primary/5 cursor-pointer">
+              <div class="cv-card-content">
+                <img src="static/rollsroyce.png" alt="Rolls-Royce" class="cv-logo">
+                <div class="flex-1 space-y-4">
+                  <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                    <div>
+                      <h4 class="text-xl font-semibold">Sub-systems Intern</h4>
+                      <p class="text-primary">Rolls-Royce</p>
+                    </div>
+                    <span class="text-muted-foreground mt-2 md:mt-0">Jul 2016 – Sep 2016</span>
+                  </div>
+                  <p class="text-muted-foreground">Architected a database system for monitoring critical modifications to aircraft engine components</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Airbus -->
+          <div class="relative pl-8 cv-item group">
+            <div class="timeline-dot absolute left-0 w-4 h-4 -translate-x-1.5 translate-y-1.5 rounded-full border-2 border-primary transition-all duration-300 group-hover:scale-150 z-10" style="background-color: #000000;"></div>
+            <div class="glass p-6 rounded-lg cv-card transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-primary/5 cursor-pointer">
+              <div class="cv-card-content">
+                <img src="static/airbus.png" alt="Airbus" class="cv-logo">
+                <div class="flex-1 space-y-4">
+                  <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                    <div>
+                      <h4 class="text-xl font-semibold">Year in Industry in Data Science</h4>
+                      <p class="text-primary">Airbus</p>
+                    </div>
+                    <span class="text-muted-foreground mt-2 md:mt-0">Jul 2015 – Jun 2016</span>
+                  </div>
+                  <p class="text-muted-foreground">Implemented AI techniques to predict maintenance stops by analyzing vast aircraft movement data</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div>
+        <h3 class="text-2xl font-semibold mb-8 text-primary">Education</h3>
+        <div class="relative space-y-8">
+          <!-- Timeline line -->
+          <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-primary/20">
+            <div class="absolute left-0 top-0 w-full bg-primary origin-top animate-progress" style="height: 100%;"></div>
+          </div>
+
+          <!-- Georgia Tech -->
+          <div class="relative pl-8 cv-item group">
+            <div class="timeline-dot absolute left-0 w-4 h-4 -translate-x-1.5 translate-y-1.5 rounded-full border-2 border-primary transition-all duration-300 group-hover:scale-150 z-10" style="background-color: #000000;"></div>
+            <div class="glass p-6 rounded-lg cv-card transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-primary/5 cursor-pointer">
+              <div class="cv-card-content">
+                <img src="static/gatech.png" alt="Georgia Tech" class="cv-logo">
+                <div class="flex-1 space-y-4">
+                  <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                    <div>
+                      <h4 class="text-xl font-semibold">Master of Computer Science</h4>
+                      <p class="text-primary">Georgia Institute of Technology</p>
+                    </div>
+                    <span class="text-muted-foreground mt-2 md:mt-0">Jan 2020 – Aug 2023</span>
+                  </div>
+                  <p class="text-muted-foreground">Specialization in Machine Learning (GPA: 3.9)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Imperial College -->
+          <div class="relative pl-8 cv-item group">
+            <div class="timeline-dot absolute left-0 w-4 h-4 -translate-x-1.5 translate-y-1.5 rounded-full border-2 border-primary transition-all duration-300 group-hover:scale-150 z-10" style="background-color: #000000;"></div>
+            <div class="glass p-6 rounded-lg cv-card transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-primary/5 cursor-pointer">
+              <div class="cv-card-content">
+                <img src="static/imperial.png" alt="Imperial College London" class="cv-logo">
+                <div class="flex-1 space-y-4">
+                  <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                    <div>
+                      <h4 class="text-xl font-semibold">Master of Aerospace Engineering</h4>
+                      <p class="text-primary">Imperial College London</p>
+                    </div>
+                    <span class="text-muted-foreground mt-2 md:mt-0">Sep 2013 – Jun 2018</span>
+                  </div>
+                  <p class="text-muted-foreground">Specialization in Computational Physics (GPA: 4.0, First Class Honors)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards Section -->
+  <section id="awards" class="section">
+    <div class="container mx-auto max-w-6xl px-6 fade-in">
+      <div class="space-y-8">
+        <div>
+          <h2 class="text-4xl font-bold">Awards</h2>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Dec 2023 -->
+          <div class="glass p-6 rounded-lg block transition-transform hover:scale-[1.02]">
+            <div class="space-y-2">
+              <h4 class="text-lg font-medium">Innovation Award</h4>
+              <p class="text-primary">NASA Ames Research Center</p>
+              <p class="text-sm text-muted-foreground">Dec 2023</p>
+              <p class="text-muted-foreground">For providing critical CT analyses to the Artemis lunar mission and Mars Sample Return</p>
+            </div>
+          </div>
+
+          <!-- Jul 2022 -->
+          <div class="glass p-6 rounded-lg block transition-transform hover:scale-[1.02]">
+            <div class="flex justify-between items-center gap-6">
+              <div class="space-y-2">
+                <h4 class="text-lg font-medium">Software of the Year</h4>
+                <p class="text-primary">NASA</p>
+                <p class="text-sm text-muted-foreground">Jul 2022</p>
+                <p class="text-muted-foreground">Awarded to the lead developers of PuMA, adopted by over 50 research institutes and 150 users</p>
+              </div>
+              <a href="https://sess.stanford.edu/news/porous-microstructure-analysis-puma-wins-2022-nasa-software-year-award" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 gap-2 flex-shrink-0">
+                Article
+              </a>
+            </div>
+          </div>
+
+          <!-- Jun 2018 -->
+          <div class="glass p-6 rounded-lg block transition-transform hover:scale-[1.02]">
+            <div class="space-y-2">
+              <h4 class="text-lg font-medium">Project Merit Prize</h4>
+              <p class="text-primary">Imperial College London</p>
+              <p class="text-sm text-muted-foreground">Jun 2018</p>
+              <p class="text-muted-foreground">Best master thesis of the 2018 Aerospace Engineering cohort</p>
+            </div>
+          </div>
+
+          <!-- Jun 2015 -->
+          <div class="glass p-6 rounded-lg block transition-transform hover:scale-[1.02]">
+            <div class="space-y-2">
+              <h4 class="text-lg font-medium">Certificate of Excellence</h4>
+              <p class="text-primary">Imperial College London</p>
+              <p class="text-sm text-muted-foreground">Jun 2015</p>
+              <p class="text-muted-foreground">Top performance at Imperial College London</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container mx-auto max-w-6xl px-6 fade-in">
+      <div class="flex items-center justify-between mb-12">
+        <h2 class="text-4xl font-bold">Projects</h2>
+        <div class="flex items-center gap-4">
+          <a href="https://scholar.google.com/citations?user=DMuVhnkAAAAJ&hl" target="_blank" class="glass p-3 rounded-lg hover:scale-110 transition-transform">
+            <img src="static/gscholar.svg" class="w-6 h-6" alt="Google Scholar">
+          </a>
+          <a href="https://github.com/fedesemeraro" target="_blank" class="glass p-3 rounded-lg hover:scale-110 transition-transform">
+            <img src="static/github.svg" class="w-6 h-6" alt="GitHub">
+          </a>
+        </div>
+      </div>
+
+      <!-- Research Projects -->
+      <div class="mb-16">
+        <h3 class="text-2xl font-semibold mb-8">Research</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- DSplats -->
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-wrapper">
+              <img src="static/dsplats_background.png" alt="DSplats Background" class="project-image-background">
+              <div class="project-dark-overlay"></div>
+            <canvas class="project-canvas-overlay"></canvas>
+              <img src="static/dsplats.png" alt="DSplats" class="project-image-main">
+            </div>
+            <p class="text-primary text-sm font-medium">Apple MLR 2025</p>
+            <h4 class="text-lg font-semibold">DSplats: 3D Generation by Denoising Splats-Based Multiview Diffusion Models</h4>
+            <p class="text-sm text-gray-200">
+              Authors: Kevin Miao, Harsh Agrawal, Qihang Zhang, Federico Semeraro, Marco Cavallo, Jiatao Gu, Alexander Toshev
+            </p>
+            <p class="text-muted-foreground text-sm">
+              A novel approach for generating 3D objects using splat-based multiview diffusion models, enabling high-quality 3D content creation.
+            </p>
+            <a href="https://machinelearning.apple.com/research/dsplats-3d-generation" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+              Publication
+            </a>
+          </div>
+
+          <!-- 4DMCT -->
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-wrapper">
+              <img src="static/4dmct_background.png" alt="4DMCT Background" class="project-image-background">
+              <div class="project-dark-overlay"></div>
+            <canvas class="project-canvas-overlay"></canvas>
+              <img src="static/4dmct.png" alt="4DMCT" class="project-image-main">
+            </div>
+            <p class="text-primary text-sm font-medium">Advanced Materials 2025</p>
+            <h4 class="text-lg font-semibold">Carbon Fiber Oxidation in 4D</h4>
+            <p class="text-sm text-gray-200">
+              Authors: Benjamin M. Ringel, Federico Semeraro, Joseph C. Ferguson, Harold S. Barnard, Bruno Dias, Christian M. Schlepütz, Edward S. Barnard, Sam Schickler, Kara Levy, Shawn Shacterman, Talia Benioff-White, Julian Davis, Alastair A. MacDowell, Dilworth Y. Parkinson, Francesco Panerai
+            </p>
+            <p class="text-muted-foreground text-sm">
+              Analysis and simulation of time-resolved X-ray microtomography revealing oxidation-induced degradation in carbon fiber heat shields, impacting material properties and aerospace design.
+            </p>
+            <a href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202502007" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+              Publication
+            </a>
+          </div>
+
+          <!-- Permeability -->
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-wrapper">
+              <img src="static/permeability_background.png" alt="Permeability Background" class="project-image-background">
+              <div class="project-dark-overlay"></div>
+            <canvas class="project-canvas-overlay"></canvas>
+              <img src="static/permeability.png" alt="Permeability" class="project-image-main">
+            </div>
+            <p class="text-primary text-sm font-medium">CMAME 2025</p>
+            <h4 class="text-lg font-semibold">Enabling FEM-based absolute permeability estimation in giga-voxel porous media with a single GPU</h4>
+            <p class="text-sm text-gray-200">
+              Authors: Pedro Cortez Fetter Lopes, Federico Semeraro, André Maués Brabo Pereira, Ricardo Leiderman
+            </p>
+            <p class="text-muted-foreground text-sm">
+              Open-source lightweight GPU solvers for FEM simulation of Stokes flow in porous media.
+            </p>
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0045782524008132?via%3Dihub" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+              Publication
+            </a>
+          </div>
 
           <!-- arcjetCV -->
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/arcjetCV.gif" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/arcjetCV_background.jpg"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <p class="research-list--item-category p--meta purple-2">Spacecraft and Rockets 2025</p>
-                    <h1 class="h6">arcjetCV: an open-source software to analyze material ablation</h1>
-                    <p class="p--meta">
-                      Authors:
-                      <span class="grey-mid-light">
-                        Alexandre Quintart, Magnus Haw, Federico Semeraro
-                      </span>
-                    </p>
-                    <div class="rich-text">
-                      A python package to automate time-resolved measurements of heatshield material recession from arcjet videos via edge detection and tracking.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://arc.aiaa.org/doi/10.2514/1.A36132">
-                    > Publication
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://github.com/magnus-haw/arcjetCV">
-                    > Github
-                  </a>
-                </footer>
-              </div>
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-wrapper">
+              <img src="static/arcjetCV_background.jpg" alt="arcjetCV Background" class="project-image-background">
+              <div class="project-dark-overlay"></div>
+            <canvas class="project-canvas-overlay"></canvas>
+              <img src="static/arcjetCV.gif" alt="arcjetCV" class="project-image-main">
             </div>
-          </article>
+            <p class="text-primary text-sm font-medium">Spacecraft and Rockets 2025</p>
+            <h4 class="text-lg font-semibold">arcjetCV: an open-source software to analyze material ablation</h4>
+            <p class="text-sm text-gray-200">
+              Authors: Alexandre Quintart, Magnus Haw, Federico Semeraro
+            </p>
+            <p class="text-muted-foreground text-sm">
+              A python package to automate time-resolved measurements of heatshield material recession from arcjet videos via edge detection and tracking.
+            </p>
+            <div class="flex gap-4 text-sm">
+              <a href="https://arc.aiaa.org/doi/10.2514/1.A36132" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Publication
+              </a>
+              <a href="https://github.com/magnus-haw/arcjetCV" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Github
+              </a>
+            </div>
+          </div>
 
-          <!-- tomosam -->
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/tomosam.jpg" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/tomosam_background.jpg"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <p class="research-list--item-category p--meta purple-2">SoftwareX 2025</p>
-                    <h1 class="h6">TomoSAM: Slicer's extension for 3D segmentation</h1>
-                    <p class="p--meta">
-                      Authors:
-                      <span class="grey-mid-light">
-                        Federico Semeraro, Alexandre Quintart, Sergio Fraile Izquierdo, Joseph C. Ferguson
-                      </span>
-                    </p>
-                    <div class="rich-text">
-                      An extension of Slicer using the Segment Anything Model (SAM) to aid the segmentation of 3D data from tomography or other imaging techniques.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.sciencedirect.com/science/article/pii/S2352711025001852">
-                    > Publication
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://github.com/fedesemeraro/SlicerTomoSAM">
-                    > Github
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://youtu.be/4nXCYrvBSjk">
-                    > Video Tutorial
-                  </a>
-                </footer>
-              </div>
+          <!-- TomoSAM -->
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-wrapper">
+              <img src="static/tomosam_background.jpg" alt="TomoSAM Background" class="project-image-background">
+              <div class="project-dark-overlay"></div>
+            <canvas class="project-canvas-overlay"></canvas>
+              <img src="static/tomosam.jpg" alt="TomoSAM" class="project-image-main">
             </div>
-          </article>
+            <p class="text-primary text-sm font-medium">SoftwareX 2025</p>
+            <h4 class="text-lg font-semibold">TomoSAM: Slicer's extension for 3D segmentation</h4>
+            <p class="text-sm text-gray-200">
+              Authors: Federico Semeraro, Alexandre Quintart, Sergio Fraile Izquierdo, Joseph C. Ferguson
+            </p>
+            <p class="text-muted-foreground text-sm">
+              An extension of Slicer using the Segment Anything Model (SAM) to aid the segmentation of 3D data from tomography or other imaging techniques.
+            </p>
+            <div class="flex gap-4 text-sm">
+              <a href="https://www.sciencedirect.com/science/article/pii/S2352711025001852" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Publication
+              </a>
+              <a href="https://github.com/fedesemeraro/SlicerTomoSAM" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Github
+              </a>
+              <a href="https://youtu.be/4nXCYrvBSjk" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Video Tutorial
+              </a>
+            </div>
+          </div>
 
-          <!-- chfem -->
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/chfem.jpg" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/chfem_background.jpg"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <p class="research-list--item-category p--meta purple-2">Computational Materials Science 2023</p>
-                    <h1 class="h6">Simulation toolkit for digital material characterization of large image-based microstructures</h1>
-                    <p class="p--meta">
-                      Authors:
-                      <span class="grey-mid-light">
-                        Pedro C.F. Lopes, Rafael S. Vianna, Victor W. Sapucaia, Federico Semeraro, Ricardo Leiderman, André M.B. Pereira
-                      </span>
-                    </p>
-                    <div class="rich-text">
-                      An image-based simulation CUDA toolkit for material characterization using Finite Element numerical methods to compute the
-                      effective thermal conductivity, elasticity, and permeability.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.sciencedirect.com/science/article/pii/S0927025623000150">
-                    > Publication
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://github.com/cortezpedro/chfem">
-                    > Github
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.youtube.com/watch?v=xgEEtXUCFmE&t=2214s">
-                    > Presentation
-                  </a>
-                </footer>
-              </div>
+          <!-- CHFEM -->
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-wrapper">
+              <img src="static/chfem_background.jpg" alt="CHFEM Background" class="project-image-background">
+              <div class="project-dark-overlay"></div>
+            <canvas class="project-canvas-overlay"></canvas>
+              <img src="static/chfem.jpg" alt="CHFEM" class="project-image-main">
             </div>
-          </article>
+            <p class="text-primary text-sm font-medium">Computational Materials Science 2023</p>
+            <h4 class="text-lg font-semibold">Simulation toolkit for digital material characterization</h4>
+            <p class="text-sm text-gray-200">
+              Authors: Pedro C.F. Lopes, Rafael S. Vianna, Victor W. Sapucaia, Federico Semeraro, Ricardo Leiderman, André M.B. Pereira
+            </p>
+            <p class="text-muted-foreground text-sm">
+              An image-based simulation CUDA toolkit for material characterization using Finite Element numerical methods to compute the effective thermal conductivity, elasticity, and permeability.
+            </p>
+            <div class="flex gap-4 text-sm">
+              <a href="https://www.sciencedirect.com/science/article/pii/S0927025623000150" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Publication
+              </a>
+              <a href="https://github.com/cortezpedro/chfem" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Github
+              </a>
+              <a href="https://www.youtube.com/watch?v=xgEEtXUCFmE&t=2214s" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Presentation
+              </a>
+            </div>
+          </div>
 
-          <!-- puma -->
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/puma.jpg" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">  <!-- to control color: research=purple, applied=blue -->
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/puma_background.jpg"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <p class="research-list--item-category p--meta purple-2">SoftwareX 2021</p>
-                    <h1 class="h6">Porous Microstructure Analysis (PuMA)</h1>
-                    <p class="p--meta">
-                      Authors:
-                      <span class="grey-mid-light">
-                        Joseph C. Ferguson, Federico Semeraro, John M. Thornton, Francesco Panerai, Arnaud Borner, Nagi N. Mansour
-                      </span>
-                    </p>
-                    <div class="rich-text">
-                      PuMA was developed to compute effective material properties and perform material 
-                      response simulations on 3D microstrutural images obtained from X-ray tomography. 
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.sciencedirect.com/science/article/pii/S235271102100090X">
-                    > Publication
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://github.com/nasa/puma">
-                    > Github
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://sess.stanford.edu/news/porous-microstructure-analysis-puma-wins-2022-nasa-software-year-award">
-                    > Article
-                  </a>
-                </footer>
-              </div>
+          <!-- PuMA -->
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-wrapper">
+              <img src="static/puma_background.jpg" alt="PuMA Background" class="project-image-background">
+              <div class="project-dark-overlay"></div>
+            <canvas class="project-canvas-overlay"></canvas>
+              <img src="static/puma.jpg" alt="PuMA" class="project-image-main">
             </div>
-          </article>
-          
-          <!-- elasticity -->
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/elasticity.jpg" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/elasticity_background.jpg"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <p class="research-list--item-category p--meta purple-2">AIAA SciTech 2021</p>
-                    <h1 class="h6">Multi-Scale Analysis of Effective Mechanical Properties of Porous 3D Woven Composite Materials</h1>
-                    <p class="p--meta">
-                      Authors:
-                      <span class="grey-mid-light">
-                        Sergio Fraile Izquierdo, Federico Semeraro and Marcos Acín
-                      </span>
-                    </p>
-                    <div class="rich-text">
-                      Computation and analysis of the mechanical properties of 3D woven composite materials that share the 
-                      same yarn structure but differ in their matrix porosity and yarn's fiber volume fraction.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://arc.aiaa.org/doi/abs/10.2514/6.2022-2281">
-                    > Publication
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://video.aiaa.org/title/348b4439-8799-4b51-933b-f7553ce6744d">
-                    > Presentation
-                  </a>
-                </footer>
-              </div>
+            <p class="text-primary text-sm font-medium">SoftwareX 2021</p>
+            <h4 class="text-lg font-semibold">Porous Microstructure Analysis (PuMA)</h4>
+            <p class="text-sm text-gray-200">
+              Authors: Joseph C. Ferguson, Federico Semeraro, John M. Thornton, Francesco Panerai, Arnaud Borner, Nagi N. Mansour
+            </p>
+            <p class="text-muted-foreground text-sm">
+              PuMA was developed to compute effective material properties and perform material response simulations on 3D microstrutural images obtained from X-ray tomography.
+            </p>
+            <div class="flex gap-4 text-sm">
+              <a href="https://www.sciencedirect.com/science/article/pii/S235271102100090X" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Publication
+              </a>
+              <a href="https://github.com/nasa/puma" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Github
+              </a>
+              <a href="https://www.nasa.gov/ames-exploration-technology/awards/nasa-software-of-the-year-awards" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Website
+              </a>
             </div>
-          </article>
-          
-          <!-- conductivity -->
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/conductivity.jpg" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/conductivity_background.jpg"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <p class="research-list--item-category p--meta purple-2">Computational Materials Science 2021</p>
-                    <h1 class="h6">Anisotropic analysis of fibrous and woven materials part 2: Computation of effective conductivity</h1>
-                    <p class="p--meta">
-                      Authors:
-                      <span class="grey-mid-light">
-                        Federico Semeraro, Joseph C. Ferguson, Marcos Acin, Francesco Panerai, Nagi N. Mansour
-                      </span>
-                    </p>
-                    <div class="rich-text">
-                      Numerical finite volume method to compute the effective thermal conductivity of 3D microstructures obtained from tomograhy,
-                      accounting for the anisotropy of the constituent phases.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.sciencedirect.com/science/article/pii/S092702562030447X">
-                    > Publication
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://nescacademy.nasa.gov/video/208b77a46c83454fa24d9218646a39c61d">
-                    > Presentation
-                  </a>
-                </footer>
-              </div>
+          </div>
+
+          <!-- Elasticity -->
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-wrapper">
+              <img src="static/elasticity_background.jpg" alt="Elasticity Background" class="project-image-background">
+              <div class="project-dark-overlay"></div>
+            <canvas class="project-canvas-overlay"></canvas>
+              <img src="static/elasticity.jpg" alt="Elasticity" class="project-image-main">
             </div>
-          </article>
-          
-          <!-- orientation -->
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/orientation.jpg" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/orientation_background.jpg"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <p class="research-list--item-category p--meta purple-2">Computational Materials Science 2020</p>
-                    <h1 class="h6">Anisotropic analysis of fibrous and woven materials part 1: Estimation of local orientation</h1>
-                    <p class="p--meta">
-                      Authors:
-                      <span class="grey-mid-light">
-                        Federico Semeraro, Joseph C. Ferguson, Francesco Panerai, Robert J. King, Nagi N. Mansour
-                      </span>
-                    </p>
-                    <div class="rich-text">
-                      Three techniques to estimate the local orientation of fibrous microstructures obtained from tomography scanning: 
-                      a common image processing technique called structure tensor, a method based on artificial flux, and a novel ray-casting approach
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.sciencedirect.com/science/article/pii/S0927025620301221">
-                    > Publication
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.nas.nasa.gov/pubs/ams/2020/09-29-20.html">
-                    > Presentation
-                  </a>
-                </footer>
-              </div>
+            <p class="text-primary text-sm font-medium">AIAA SciTech 2021</p>
+            <h4 class="text-lg font-semibold">Multi-Scale Analysis of Effective Mechanical Properties of Porous 3D Woven Composite Materials</h4>
+            <p class="text-sm text-gray-200">
+              Authors: Sergio Fraile Izquierdo, Federico Semeraro and Marcos Acín
+            </p>
+            <p class="text-muted-foreground text-sm">
+              Computation and analysis of the mechanical properties of 3D woven composite materials that share the same yarn structure but differ in their matrix porosity and yarn's fiber volume fraction.
+            </p>
+            <div class="flex gap-4 text-sm">
+              <a href="https://arc.aiaa.org/doi/abs/10.2514/6.2022-2281" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Publication
+              </a>
             </div>
-          </article>
-          
+          </div>
+
+          <!-- Conductivity -->
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-wrapper">
+              <img src="static/conductivity_background.jpg" alt="Conductivity Background" class="project-image-background">
+              <div class="project-dark-overlay"></div>
+            <canvas class="project-canvas-overlay"></canvas>
+              <img src="static/conductivity.jpg" alt="Conductivity" class="project-image-main">
+            </div>
+            <p class="text-primary text-sm font-medium">Computational Materials Science 2021</p>
+            <h4 class="text-lg font-semibold">Anisotropic analysis of fibrous and woven materials part 2: Computation of effective conductivity</h4>
+            <p class="text-sm text-gray-200">
+              Authors: Federico Semeraro, Joseph C. Ferguson, Marcos Acin, Francesco Panerai, Nagi N. Mansour
+            </p>
+            <p class="text-muted-foreground text-sm">
+              Numerical finite volume method to compute the effective thermal conductivity of 3D microstructures obtained from tomography, accounting for the anisotropy of the constituent phases.
+            </p>
+            <div class="flex gap-4 text-sm">
+              <a href="https://www.sciencedirect.com/science/article/pii/S092702562030447X" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Publication
+              </a>
+              <a href="https://nescacademy.nasa.gov/video/208b77a46c83454fa24d9218646a39c61d" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Presentation
+              </a>
+            </div>
+          </div>
+
+          <!-- Orientation -->
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-wrapper">
+              <img src="static/orientation_background.jpg" alt="Orientation Background" class="project-image-background">
+              <div class="project-dark-overlay"></div>
+            <canvas class="project-canvas-overlay"></canvas>
+              <img src="static/orientation.jpg" alt="Orientation" class="project-image-main">
+            </div>
+            <p class="text-primary text-sm font-medium">Computational Materials Science 2020</p>
+            <h4 class="text-lg font-semibold">Anisotropic analysis of fibrous and woven materials part 1: Estimation of local orientation</h4>
+            <p class="text-sm text-gray-200">
+              Authors: Federico Semeraro, Joseph C. Ferguson, Francesco Panerai, Robert J. King, Nagi N. Mansour
+            </p>
+            <p class="text-muted-foreground text-sm">
+              Three techniques to estimate the local orientation of fibrous microstructures obtained from tomography scanning: a common image processing technique called structure tensor, a method based on artificial flux, and a novel ray-casting approach
+            </p>
+            <div class="flex gap-4 text-sm">
+              <a href="https://www.sciencedirect.com/science/article/pii/S0927025620301221" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Publication
+              </a>
+              <a href="https://www.nas.nasa.gov/pubs/ams/2020/09-29-20.html" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Presentation
+              </a>
+            </div>
+          </div>
         </div>
-        
-        
-        
-        <div class="listing--list-items">
-          
-          <header class="section--header g-sm-col-4 g-lg-col-11 g-lg-push-1">
-            <h1 class="h5 uppercase left">University</h1>
-          </header>
-          
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/nerf.jpg" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/nerf_background.jpg"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <p class="research-list--item-category p--meta purple-2">OMS CS7643 Deep Learning - arXiv 2023</p>
-                    <h1 class="h6">NeRF applied to satellite imagery for surface reconstruction</h1>
-                    <p class="p--meta">
-                      Authors:
-                      <span class="grey-mid-light">
-                        Federico Semeraro, Yi Zhang, Wenying Wu, Patrick Carroll
-                      </span>
-                    </p>
-                    <div class="rich-text">
-                      Surf-NeRF, a method to synthesize novel views from a sparse set of satellite images of a scene
-                      as well as its surface elevation, while accounting for the variation in lighting present in the pictures.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://arxiv.org/abs/2304.04133">
-                    > Publication
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://github.com/fedesemeraro/surfnerf">
-                    > Github
-                  </a>
-                </footer>
-              </div>
-            </div>
-          </article>
-          
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/stereo.jpg" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/stereo.jpg"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <p class="research-list--item-category p--meta purple-2">OMS CS6476 Computer Vision</p>
-                    <h1 class="h6">Stereo Correspondence using Graph-Cuts</h1>
-                    <div style="margin-top: 10px;" class="rich-text">
-                      Two techniques to perform stereo correspondence: a simple method based on SSD 
-                      and a graph cut algorithm. The performance of both method was benchmarked
-                      against the Middlebury image database of rectified stereo image pairs.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://drive.google.com/file/d/1V4tn5or4Hag24dXpBJMbBCRHQ8sm824T/view?usp=drive_link">
-                    > Final Report
-                  </a>
-                </footer>
-              </div>
-            </div>
-          </article>
-          
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/stabilizer.jpg" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/stabilizer.jpg"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <p class="research-list--item-category p--meta purple-2">OMS CS6475 Computational Photography</p>
-                    <h1 class="h6">Video Stabilization using L1 optimal camera paths</h1>
-                    <div style="margin-top: 10px;" class="rich-text">
-                      An automatic video stabilizer relying on the estimation of the original camera path through the 
-                      detection of features between video frames and the computation of the similarity transformation between them.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://drive.google.com/file/d/1agSFhQdzouZNB2nEeYIoLGjJJ60QtGJW/view?usp=drive_link">
-                    > Final Report
-                  </a>
-                </footer>
-              </div>
-            </div>
-          </article>
-          
-        </div>
-        
-        <div class="listing--list-items">
-          
-          <header class="section--header g-sm-col-4 g-lg-col-11 g-lg-push-1">
-            <h1 class="h5 uppercase left">Internships</h1>
-          </header>
-
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/blender2dirsig.jpg" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/blender2dirsig_background.jpg"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <h1 class="h6">blender2dirsig</h1>
-                    <div style="margin-top: 10px;" class="rich-text">
-                      Automated the creation of 3D synthetic scenes during the summer internship at Planet Labs (2022) 
-                      for the DIRSIG image generation model using Blender scripting.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://drive.google.com/file/d/1LjkeYW9k5luHGwdIu7PKAXGew2CBopEq/view?usp=drive_link">
-                    > Presentation
-                  </a>
-                </footer>
-              </div>
-            </div>
-          </article>
-          
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/copper.jpg" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/copper_background.jpg"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <h1 class="h6">Copper Tracker</h1>
-                    <div style="margin-top: 10px;" class="rich-text">
-                      Developed algorithms during the summer internship at Earth-i (2017) to correlate copper ore 
-                      extraction data with features observable from space, tracked using Convolutional Neural Networks.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://drive.google.com/file/d/1enwCOL85_RC78oxPv5a9FhReJAFHIjoc/view?usp=drive_link">
-                    > Presentation
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.bbc.com/news/science-environment-43775440">
-                    > Article
-                  </a>
-                </footer>
-              </div>
-            </div>
-          </article>
-
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/lima.jpg" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/lima.jpg"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <h1 class="h6">LiMA Flight Tracker</h1>
-                    <div style="margin-top: 10px;" class="rich-text">
-                      Developed app using R during the year-long internship in the Data Science department at Airbus UK (2015-2016). 
-                      The objective was to analyze aircraft movements through FlightRadar24 and predict maintenance stops.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://github.com/fedesemeraro/LiMA-Flight-Tracker">
-                    > Github
-                  </a>
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://federicosemeraro.shinyapps.io/fr24_analysistool/">
-                    > Demo
-                  </a>
-                </footer>
-              </div>
-            </div>
-          </article>
-          
-        </div>
-        
-        <div class="listing--list-items">
-          
-          <header class="section--header g-sm-col-4 g-lg-col-11 g-lg-push-1">
-            <h1 class="h5 uppercase left">Personal</h1>
-          </header>
-          
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/nemesys.jpg" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/nemesys.jpg"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <h1 class="h6">ESA NEMESYS Bexus</h1>
-                    <div style="margin-top: 10px;" class="rich-text">
-                      Designed the structure of a student experiment (NEMESYS Bexus) flown on a stratospheric balloon by the European Space Agency
-                      to study the effect of particle impacts on memory boards.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="https://www.facebook.com/nemesysbexusproject">
-                    > Webpage
-                  </a>
-                </footer>
-              </div>
-            </div>
-          </article>
-          
-          <article class="cf research-list--item" data-dm-tmpl="research-list-item" data-scroll-item>
-            <div class="cf container">
-              <article class="three-up--item three-up--item--research g-sm-col-4 g-md-col-3 g-lg-col-4 faux-link-block "data-dm-tmpl="three-up-item">
-                <div class="right three-up--image">
-                  <div class="img-holder img-holder--16-9 img-holder--deepmind">
-                    <img class="img--object-fit img--object-width three-up--image-untreated" 
-                    src="static/img/ghana.jpg" 
-                    sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                    <div class="grad-map--applied grad-map--absolute ">
-                      <img class="img--object-fit img--object-width" 
-                      src="static/img/ghana.jpg"
-                      sizes="(max-width: 768px) 320px, (min-width: 768px) 440px">
-                      <div class="grad-map--ib-target" data-ib-hover-target="deepmind"></div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div class="g-sm-col-4 g-md-col-4 g-lg-col-7 g-md-gut g-lg-gut">
-                <header class="research-list--item-header">
-                  <div class="research-list--item-heading">
-                    <h1 class="h6">Water Brigade - Ghana 2014</h1>
-                    <div style="margin-top: 10px;" class="rich-text">
-                      Joined a brigade organized by Imperial College London traveling to a village in Ghana with no access to potable water, 
-                      with the aim of designing and implementing water systems to prevent water-related illnesses.
-                    </div>
-                  </div>
-                </header>
-                <footer class="research-list--item-footer">
-                  <a class="p--meta underline underline--blue-3 link--icon" href="http://www.empowered.org/Federico-Semeraro">
-                    > Webpage
-                  </a>
-                </footer>
-              </div>
-            </div>
-          </article>
-          
-        </div>
-        
       </div>
-      <footer id="footer" class="footer bg-grey-light" role="contentinfo">
-        <section class="cf container">
-          <div class="right social-items footer--social-items">
-            <ul class="left unstyled">
-              <li class="left social-item">
-                <a href="https://drive.google.com/file/d/1rVNenrc4KMGMROUZaNk2VqCSIc5ilZHf/view?usp=sharing"
-                target="_blank">
-                <img src="static/icons/resume.svg">
+
+      <!-- University Projects -->
+      <div class="mb-16">
+        <h3 class="text-2xl font-semibold mb-8">University</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- NeRF -->
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-wrapper">
+              <img src="static/nerf_background.jpg" alt="NeRF Background" class="project-image-background">
+              <div class="project-dark-overlay"></div>
+            <canvas class="project-canvas-overlay"></canvas>
+              <img src="static/nerf.jpg" alt="NeRF" class="project-image-main">
+            </div>
+            <p class="text-primary text-sm font-medium">OMS CS7643 Deep Learning - arXiv 2023</p>
+            <h4 class="text-lg font-semibold">NeRF applied to satellite imagery</h4>
+            <p class="text-sm text-gray-200">
+              Authors: Federico Semeraro, Yi Zhang, Wenying Wu, Patrick Carroll
+            </p>
+            <p class="text-muted-foreground text-sm">
+              Surf-NeRF, a method to synthesize novel views from a sparse set of satellite images of a scene as well as its surface elevation, while accounting for the variation in lighting present in the pictures.
+            </p>
+            <div class="flex gap-4 text-sm">
+              <a href="https://arxiv.org/abs/2304.04133" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Publication
               </a>
-            </li>
-            <li class="left social-item">
-              <a href="https://www.linkedin.com/in/fedesemeraro" target="_blank">
-                <img src="static/icons/linkedin.svg">
+              <a href="https://github.com/fedesemeraro/surfnerf" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Github
               </a>
-            </li>
-            <li class="left social-item">
-              <a href="https://www.instagram.com/fedesemeraro" target="_blank">
-                <img src="static/icons/instagram.svg">
-              </a>
-            </li>
-            <li class="left social-item">
-              <a href="https://github.com/fedesemeraro" target="_blank">
-                <img src="static/icons/github.svg">
-              </a>
-            </li>
-            <li class="left social-item">
-              <a href="https://scholar.google.com/citations?user=DMuVhnkAAAAJ&hl" target="_blank">
-                <img src="static/icons/gscholar.svg">
-              </a>
-            </li>
-            <li class="left social-item">
-              <a href="mailto:federicosemeraro94@gmail.com" target="_blank">
-                <img src="static/icons/email.svg">
-              </a>
-            </li>
-          </ul>
+            </div>
+          </div>
+
+          <!-- Stereo Correspondence -->
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-simple">
+              <img src="static/stereo.jpg" alt="Stereo">
+              <div class="project-dark-overlay"></div>
+              <canvas class="project-canvas-overlay"></canvas>
+            </div>
+            <p class="text-primary text-sm font-medium">OMS CS6476 Computer Vision</p>
+            <h4 class="text-lg font-semibold">Stereo Correspondence using Graph-Cuts</h4>
+            <p class="text-muted-foreground text-sm">
+              Two techniques to perform stereo correspondence: a simple method based on SSD and a graph cut algorithm. The performance of both method was benchmarked against the Middlebury image database.
+            </p>
+            <a href="https://drive.google.com/file/d/1V4tn5or4Hag24dXpBJMbBCRHQ8sm824T/view?usp=drive_link" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+              Final Report
+            </a>
+          </div>
+
+          <!-- Video Stabilization -->
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-simple">
+              <img src="static/stabilizer.jpg" alt="Stabilizer">
+              <div class="project-dark-overlay"></div>
+              <canvas class="project-canvas-overlay"></canvas>
+            </div>
+            <p class="text-primary text-sm font-medium">OMS CS6475 Computational Photography</p>
+            <h4 class="text-lg font-semibold">Video Stabilization using L1 optimal camera paths</h4>
+            <p class="text-muted-foreground text-sm">
+              An automatic video stabilizer relying on the estimation of the original camera path through the detection of features between video frames and the computation of the similarity transformation between them.
+            </p>
+            <a href="https://drive.google.com/file/d/1agSFhQdzouZNB2nEeYIoLGjJJ60QtGJW/view?usp=drive_link" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+              Final Report
+            </a>
+          </div>
         </div>
-      </section>
-    </footer>
-  </main>
-  <section class="search fixed top-0 right-0 bottom-0 left-0" data-dm-tmpl="search">
-    <section class="search--input-wrapper relative"></section>
+      </div>
+
+      <!-- Internship Projects -->
+      <div class="mb-16">
+        <h3 class="text-2xl font-semibold mb-8">Internships</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- Blender2DIRSIG -->
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-wrapper">
+              <img src="static/blender2dirsig_background.jpg" alt="Blender2DIRSIG Background" class="project-image-background">
+              <div class="project-dark-overlay"></div>
+            <canvas class="project-canvas-overlay"></canvas>
+              <img src="static/blender2dirsig.jpg" alt="Blender2DIRSIG" class="project-image-main">
+            </div>
+            <h4 class="text-lg font-semibold">blender2dirsig</h4>
+            <p class="text-muted-foreground text-sm">
+              Automated the creation of 3D synthetic scenes during the summer internship at Planet Labs (2022) for the DIRSIG image generation model using Blender scripting.
+            </p>
+            <a href="https://drive.google.com/file/d/1LjkeYW9k5luHGwdIu7PKAXGew2CBopEq/view?usp=drive_link" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+              Presentation
+            </a>
+          </div>
+
+          <!-- Copper Tracker -->
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-wrapper">
+              <img src="static/copper_background.jpg" alt="Copper Tracker Background" class="project-image-background">
+              <div class="project-dark-overlay"></div>
+            <canvas class="project-canvas-overlay"></canvas>
+              <img src="static/copper.jpg" alt="Copper Tracker" class="project-image-main">
+            </div>
+            <h4 class="text-lg font-semibold">Copper Tracker</h4>
+            <p class="text-muted-foreground text-sm">
+              Developed algorithms during the summer internship at Earth-i (2017) to correlate copper ore extraction data with features observable from space, tracked using Convolutional Neural Networks.
+            </p>
+            <div class="flex gap-4 text-sm">
+              <a href="https://drive.google.com/file/d/1enwCOL85_RC78oxPv5a9FhReJAFHIjoc/view?usp=drive_link" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Presentation
+              </a>
+              <a href="https://www.bbc.com/news/science-environment-43775440" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Article
+              </a>
+            </div>
+          </div>
+
+          <!-- LiMA Flight Tracker -->
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-simple">
+              <img src="static/lima.jpg" alt="LiMA">
+              <div class="project-dark-overlay"></div>
+              <canvas class="project-canvas-overlay"></canvas>
+            </div>
+            <h4 class="text-lg font-semibold">LiMA Flight Tracker</h4>
+            <p class="text-muted-foreground text-sm">
+              Developed app using R during the year-long internship in the Data Science department at Airbus UK (2015-2016). The objective was to analyze aircraft movements through FlightRadar24 and predict maintenance stops.
+            </p>
+            <div class="flex gap-4 text-sm">
+              <a href="https://github.com/fedesemeraro/LiMA-Flight-Tracker" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Github
+              </a>
+              <a href="https://federicosemeraro.shinyapps.io/fr24_analysistool/" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Demo
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Personal Projects -->
+      <div>
+        <h3 class="text-2xl font-semibold mb-8">Personal</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- NEMESYS -->
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-simple">
+              <img src="static/nemesys.jpg" alt="NEMESYS">
+              <div class="project-dark-overlay"></div>
+              <canvas class="project-canvas-overlay"></canvas>
+            </div>
+            <h4 class="text-lg font-semibold">ESA NEMESYS Bexus</h4>
+            <p class="text-muted-foreground text-sm">
+              Designed the structure of a student experiment (NEMESYS Bexus) flown on a stratospheric balloon by the European Space Agency to study the effect of particle impacts on memory boards.
+            </p>
+            <a href="https://www.facebook.com/nemesysbexusproject" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+              Webpage
+            </a>
+          </div>
+
+          <!-- Ghana Water Brigade -->
+          <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
+            <div class="project-image-simple">
+              <img src="static/ghana.jpg" alt="Ghana">
+              <div class="project-dark-overlay"></div>
+              <canvas class="project-canvas-overlay"></canvas>
+            </div>
+            <h4 class="text-lg font-semibold">Water Brigade - Ghana 2014</h4>
+            <p class="text-muted-foreground text-sm">
+              Joined a brigade organized by Imperial College London traveling to a village in Ghana with no access to potable water, with the aim of designing and implementing water systems to prevent water-related illnesses.
+            </p>
+            <a href="http://www.empowered.org/Federico-Semeraro" target="_blank" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+              Webpage
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
-</div>
-<section class="cookie-banner is-hidden" data-dm-tmpl="cookie-banner" data-last-updated="1489766160"></section>
+
+  <!-- Footer -->
+  <footer class="glass py-6 mt-20">
+    <div class="container mx-auto max-w-6xl px-6 text-center text-sm text-muted-foreground">
+      <p>&copy; 2025 Federico Semeraro. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Custom Scripts -->
+  <script src="script.js"></script>
+
+  <!-- PDF Modal -->
+  <div id="pdfModal" class="pdf-modal">
+    <div class="pdf-modal-content">
+      <button class="pdf-modal-close" onclick="closePdfModal()">×</button>
+      <iframe src="https://drive.google.com/file/d/1rVNenrc4KMGMROUZaNk2VqCSIc5ilZHf/preview"></iframe>
+    </div>
+  </div>
 </body>
 </html>
