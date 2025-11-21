@@ -302,24 +302,32 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Mobile click handler for project images
-function handleMobileImageClick() {
-  // Only apply on mobile devices
-  if (window.innerWidth <= 768) {
-    document.querySelectorAll('.project-image-wrapper, .project-image-simple').forEach(wrapper => {
-      wrapper.addEventListener('click', function() {
+function initMobileImageClick() {
+  document.querySelectorAll('.project-image-wrapper, .project-image-simple').forEach(wrapper => {
+    // Use both click and touchend for better mobile support
+    const toggleImage = function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        e.stopPropagation();
         this.classList.toggle('clicked');
-      });
-    });
-  }
+      }
+    };
+
+    wrapper.addEventListener('click', toggleImage);
+    wrapper.addEventListener('touchend', toggleImage);
+  });
 }
 
-// Initialize mobile click handlers
-document.addEventListener('DOMContentLoaded', handleMobileImageClick);
+// Initialize after DOM is loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initMobileImageClick);
+} else {
+  initMobileImageClick();
+}
 
-// Re-initialize on window resize
+// Handle window resize
 window.addEventListener('resize', () => {
   if (window.innerWidth > 768) {
-    // Remove clicked class when switching to desktop
     document.querySelectorAll('.project-image-wrapper, .project-image-simple').forEach(wrapper => {
       wrapper.classList.remove('clicked');
     });

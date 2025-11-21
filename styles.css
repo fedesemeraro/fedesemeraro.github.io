@@ -480,8 +480,34 @@ img[src$=".svg"] {
     display: none !important;
   }
 
+  /* Disable hover effects on mobile */
+  .project-image-wrapper:hover .project-image-main,
+  .project-image-simple:hover .project-image-main {
+    opacity: 1 !important;
+  }
+
+  /* Enable clickability on mobile */
+  .project-image-wrapper,
+  .project-image-simple {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+  }
+
+  /* Make child images pass clicks to wrapper */
+  .project-image-wrapper img,
+  .project-image-simple img {
+    pointer-events: none;
+  }
+
   /* Enable image swap on click for mobile */
-  .project-image-wrapper.clicked .project-image-main {
+  .project-image-wrapper .project-image-main,
+  .project-image-simple .project-image-main {
+    transition: opacity 0.3s ease;
+  }
+
+  .project-image-wrapper.clicked .project-image-main,
+  .project-image-simple.clicked .project-image-main {
     opacity: 0;
   }
 }
