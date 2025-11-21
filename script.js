@@ -304,17 +304,29 @@ document.addEventListener('DOMContentLoaded', () => {
 // Mobile click handler for project images
 function initMobileImageClick() {
   document.querySelectorAll('.project-image-wrapper, .project-image-simple').forEach(wrapper => {
-    // Use both click and touchend for better mobile support
-    const toggleImage = function(e) {
+    let touchStarted = false;
+
+    // Handle touch events for mobile (iOS)
+    wrapper.addEventListener('touchstart', function(e) {
       if (window.innerWidth <= 768) {
+        touchStarted = true;
+      }
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', function(e) {
+      if (window.innerWidth <= 768 && touchStarted) {
         e.preventDefault();
-        e.stopPropagation();
+        this.classList.toggle('clicked');
+        touchStarted = false;
+      }
+    }, { passive: false });
+
+    // Handle click for desktop simulation
+    wrapper.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768 && !touchStarted) {
         this.classList.toggle('clicked');
       }
-    };
-
-    wrapper.addEventListener('click', toggleImage);
-    wrapper.addEventListener('touchend', toggleImage);
+    });
   });
 }
 
