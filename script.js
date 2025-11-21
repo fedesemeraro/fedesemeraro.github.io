@@ -304,44 +304,56 @@ document.addEventListener('DOMContentLoaded', () => {
 // Mobile click handler for project images
 function initMobileImageClick() {
   document.querySelectorAll('.project-image-wrapper, .project-image-simple').forEach(wrapper => {
-    let touchStarted = false;
+    const mainImage = wrapper.querySelector('.project-image-main');
+    if (!mainImage) return;
 
-    // Handle touch events for mobile (iOS)
-    wrapper.addEventListener('touchstart', function(e) {
+    // Initialize state
+    wrapper.dataset.imageState = 'main';
+
+    // Toggle function
+    const toggleImage = () => {
       if (window.innerWidth <= 768) {
-        touchStarted = true;
+        if (wrapper.dataset.imageState === 'main') {
+          mainImage.style.opacity = '0';
+          wrapper.dataset.imageState = 'background';
+        } else {
+          mainImage.style.opacity = '1';
+          wrapper.dataset.imageState = 'main';
+        }
       }
-    }, { passive: true });
+    };
 
-    wrapper.addEventListener('touchend', function(e) {
-      if (window.innerWidth <= 768 && touchStarted) {
-        e.preventDefault();
-        this.classList.toggle('clicked');
-        touchStarted = false;
-      }
+    // Add touch and click handlers
+    wrapper.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      toggleImage();
     }, { passive: false });
 
-    // Handle click for desktop simulation
-    wrapper.addEventListener('click', function(e) {
-      if (window.innerWidth <= 768 && !touchStarted) {
-        this.classList.toggle('clicked');
-      }
-    });
+    wrapper.addEventListener('click', toggleImage);
   });
 }
 
 // Initialize after DOM is loaded
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initMobileImageClick);
+  document.addEventListener('DOMContentLoaded', () => {
+    forceGifLoop();
+    initMobileImageToggle();
+  });
 } else {
-  initMobileImageClick();
+  forceGifLoop();
+  initMobileImageToggle();
 }
 
 // Handle window resize
 window.addEventListener('resize', () => {
   if (window.innerWidth > 768) {
+    // Reset all images on desktop
     document.querySelectorAll('.project-image-wrapper, .project-image-simple').forEach(wrapper => {
-      wrapper.classList.remove('clicked');
+      const mainImage = wrapper.querySelector('.project-image-main');
+      if (mainImage) {
+        mainImage.style.opacity = '1';
+        wrapper.dataset.imageState = 'main';
+      }
     });
   }
 });

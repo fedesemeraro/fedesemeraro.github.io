@@ -500,14 +500,9 @@ img[src$=".svg"] {
     pointer-events: none;
   }
 
-  /* Enable image swap on click for mobile */
+  /* Smooth transition for slideshow */
   .project-image-wrapper .project-image-main,
   .project-image-simple .project-image-main {
-    transition: opacity 0.3s ease;
-  }
-
-  .project-image-wrapper.clicked .project-image-main,
-  .project-image-simple.clicked .project-image-main {
-    opacity: 0;
+    transition: opacity 0.5s ease;
   }
 }
