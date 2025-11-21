@@ -5,366 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Federico Semeraro</title>
   <meta name="description" content="Federico Semeraro's personal website - CV/ML Engineer at Apple specializing in graphics, rendering, and 3D generative modeling">
-  <link rel="shortcut icon" href="static/icons/fslogo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="static/fslogo.png" type="image/x-icon">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
-    /* Custom theme and glass morphism */
-    :root {
-      --primary: 217.2 91.2% 59.8%;
-      --background: 0 0% 0%;
-      --foreground: 210 40% 98%;
-      --muted: 217.2 32.6% 17.5%;
-      --muted-foreground: 215 20.2% 65.1%;
-      --accent: 217.2 32.6% 17.5%;
-      --border: 217.2 32.6% 17.5%;
-    }
-
-    body {
-      background-color: #000000;
-      color: hsl(var(--foreground));
-      font-family: ui-sans-serif, system-ui, sans-serif;
-    }
-
-    .glass {
-      background-color: rgba(23, 37, 84, 0.4);
-      backdrop-filter: blur(12px);
-      border: 1px solid hsl(var(--border) / 0.5);
-    }
-
-    .text-primary {
-      color: hsl(var(--primary));
-    }
-
-    .bg-primary {
-      background-color: hsl(var(--primary));
-    }
-
-    .text-muted-foreground {
-      color: hsl(var(--muted-foreground));
-    }
-
-    .section {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 5rem;
-      padding-bottom: 5rem;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-in {
-      animation: fadeIn 0.5s ease-out forwards;
-    }
-
-    /* Static background for canvas */
-    .bg-animated {
-      background: #000000;
-    }
-
-    .nav-link {
-      position: relative;
-      transition: color 0.3s;
-    }
-
-    .nav-link:hover {
-      color: hsl(var(--primary));
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: hsl(var(--primary));
-      transition: width 0.3s;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    /* Make icons visible on black background */
-    img[src*="icons/"] {
-      filter: invert(1) brightness(1.2);
-    }
-
-    /* Timeline animation */
-    @keyframes progress {
-      from { height: 0%; }
-      to { height: 100%; }
-    }
-
-    .animate-progress {
-      animation: progress 2s ease-out forwards;
-    }
-
-    /* CV item animations */
-    .cv-item {
-      opacity: 0;
-      transform: translateX(-4rem);
-      animation: slideIn 0.7s ease-out forwards;
-    }
-
-    .cv-item:nth-child(1) { animation-delay: 0.1s; }
-    .cv-item:nth-child(2) { animation-delay: 0.2s; }
-    .cv-item:nth-child(3) { animation-delay: 0.3s; }
-    .cv-item:nth-child(4) { animation-delay: 0.4s; }
-    .cv-item:nth-child(5) { animation-delay: 0.5s; }
-    .cv-item:nth-child(6) { animation-delay: 0.6s; }
-
-    @keyframes slideIn {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    /* Timeline dot fill on hover */
-    .group:hover .timeline-dot {
-      background-color: hsl(var(--primary)) !important;
-    }
-
-    /* Project image hover effect */
-    .project-image-wrapper {
-      position: relative;
-      overflow: hidden;
-      border-radius: 0.5rem;
-      aspect-ratio: 9 / 5;
-      background-color: white;
-    }
-
-    .project-image-wrapper img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .project-image-main {
-      z-index: 4;
-    }
-
-    .project-image-background {
-      z-index: 1;
-      opacity: 1;
-    }
-
-    .project-dark-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 2;
-      background: rgba(0, 0, 0, 0.6);
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      pointer-events: none;
-    }
-
-    .project-canvas-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 3;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      pointer-events: none;
-    }
-
-    .project-image-wrapper:hover .project-image-main {
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    .project-image-wrapper:hover .project-dark-overlay {
-      opacity: 1;
-    }
-
-    .project-image-wrapper:hover .project-canvas-overlay {
-      opacity: 1;
-    }
-
-    /* Simple image wrapper for projects without hover effects */
-    .project-image-simple {
-      position: relative;
-      overflow: hidden;
-      border-radius: 0.5rem;
-      aspect-ratio: 9 / 5;
-      background-color: white;
-    }
-
-    .project-image-simple img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      z-index: 1;
-    }
-
-    .project-image-simple .project-dark-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 2;
-      background: rgba(0, 0, 0, 0.6);
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      pointer-events: none;
-    }
-
-    .project-image-simple .project-canvas-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 3;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      pointer-events: none;
-    }
-
-    .project-image-simple:hover .project-dark-overlay {
-      opacity: 1;
-    }
-
-    .project-image-simple:hover .project-canvas-overlay {
-      opacity: 1;
-    }
-
-    /* PDF Modal Overlay */
-    .pdf-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      z-index: 9999;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-
-    .pdf-modal.active {
-      display: flex;
-    }
-
-    .pdf-modal-content {
-      position: relative;
-      width: 100%;
-      max-width: 1200px;
-      height: 90vh;
-      background: white;
-      border-radius: 0.5rem;
-      overflow: hidden;
-    }
-
-    .pdf-modal-close {
-      position: absolute;
-      top: -3rem;
-      right: 0;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: white;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 24px;
-      transition: all 0.3s;
-      backdrop-filter: blur(10px);
-    }
-
-    .pdf-modal-close:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: scale(1.1);
-    }
-
-    .pdf-modal iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* Project button fill effect on hover */
-    .glass a[class*="inline-flex"] {
-      position: relative;
-      overflow: hidden;
-      background-color: transparent;
-      border-color: hsl(var(--primary));
-      color: hsl(var(--primary));
-      transition: color 0.3s ease;
-    }
-
-    .glass a[class*="inline-flex"]::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: hsl(var(--primary));
-      transform: translateY(100%);
-      transition: transform 0.3s ease;
-      z-index: -1;
-    }
-
-    .glass a[class*="inline-flex"]:hover::before {
-      transform: translateY(0);
-    }
-
-    .glass a[class*="inline-flex"]:hover {
-      color: #000000;
-      border-color: hsl(var(--primary));
-    }
-
-    /* CV card logo styling */
-    .cv-logo {
-      width: 70px;
-      height: 70px;
-      object-fit: contain;
-      flex-shrink: 0;
-      filter: none !important;
-    }
-
-    .cv-card-content {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-  </style>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="bg-animated">
@@ -388,18 +35,18 @@
         <!-- Profile Image and Social Links -->
         <div class="flex flex-col items-center">
           <div class="w-60 h-60 rounded-full overflow-hidden glass">
-            <img src="static/img/fs.jpg" alt="Federico Semeraro" class="w-full h-full object-cover">
+            <img src="static/fs.jpg" alt="Federico Semeraro" class="w-full h-full object-cover">
           </div>
           <p class="text-center mt-4 font-medium text-xl">Federico Semeraro</p>
           <div class="flex gap-2 mt-4 flex-wrap justify-center">
             <a href="https://www.linkedin.com/in/fedesemeraro" target="_blank" class="glass p-2 rounded-lg hover:scale-110 transition-transform">
-              <img src="static/icons/linkedin.svg" class="w-6 h-6" alt="LinkedIn">
+              <img src="static/linkedin.svg" class="w-6 h-6" alt="LinkedIn">
             </a>
             <a href="https://www.instagram.com/fedesemeraro" target="_blank" class="glass p-2 rounded-lg hover:scale-110 transition-transform">
-              <img src="static/icons/instagram.svg" class="w-6 h-6" alt="Instagram">
+              <img src="static/instagram.svg" class="w-6 h-6" alt="Instagram">
             </a>
             <a href="mailto:federicosemeraro94@gmail.com" target="_blank" class="glass p-2 rounded-lg hover:scale-110 transition-transform">
-              <img src="static/icons/email.svg" class="w-6 h-6" alt="Email">
+              <img src="static/email.svg" class="w-6 h-6" alt="Email">
             </a>
           </div>
         </div>
@@ -495,7 +142,7 @@
             <div class="timeline-dot absolute left-0 w-4 h-4 -translate-x-1.5 translate-y-1.5 rounded-full border-2 border-primary transition-all duration-300 group-hover:scale-150 z-10" style="background-color: #000000;"></div>
             <div class="glass p-6 rounded-lg cv-card transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-primary/5 cursor-pointer">
               <div class="cv-card-content">
-                <img src="static/icons/apple.png" alt="Apple" class="cv-logo">
+                <img src="static/apple.png" alt="Apple" class="cv-logo">
                 <div class="flex-1 space-y-4">
                   <div class="flex flex-col md:flex-row md:justify-between md:items-start">
                     <div>
@@ -515,7 +162,7 @@
             <div class="timeline-dot absolute left-0 w-4 h-4 -translate-x-1.5 translate-y-1.5 rounded-full border-2 border-primary transition-all duration-300 group-hover:scale-150 z-10" style="background-color: #000000;"></div>
             <div class="glass p-6 rounded-lg cv-card transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-primary/5 cursor-pointer">
               <div class="cv-card-content">
-                <img src="static/icons/nasa.png" alt="NASA" class="cv-logo">
+                <img src="static/nasa.png" alt="NASA" class="cv-logo">
                 <div class="flex-1 space-y-4">
                   <div class="flex flex-col md:flex-row md:justify-between md:items-start">
                     <div>
@@ -535,7 +182,7 @@
             <div class="timeline-dot absolute left-0 w-4 h-4 -translate-x-1.5 translate-y-1.5 rounded-full border-2 border-primary transition-all duration-300 group-hover:scale-150 z-10" style="background-color: #000000;"></div>
             <div class="glass p-6 rounded-lg cv-card transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-primary/5 cursor-pointer">
               <div class="cv-card-content">
-                <img src="static/icons/planet.png" alt="Planet Labs" class="cv-logo">
+                <img src="static/planet.png" alt="Planet Labs" class="cv-logo">
                 <div class="flex-1 space-y-4">
                   <div class="flex flex-col md:flex-row md:justify-between md:items-start">
                     <div>
@@ -555,7 +202,7 @@
             <div class="timeline-dot absolute left-0 w-4 h-4 -translate-x-1.5 translate-y-1.5 rounded-full border-2 border-primary transition-all duration-300 group-hover:scale-150 z-10" style="background-color: #000000;"></div>
             <div class="glass p-6 rounded-lg cv-card transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-primary/5 cursor-pointer">
               <div class="cv-card-content">
-                <img src="static/icons/earthi.png" alt="Earth-i" class="cv-logo">
+                <img src="static/earthi.png" alt="Earth-i" class="cv-logo">
                 <div class="flex-1 space-y-4">
                   <div class="flex flex-col md:flex-row md:justify-between md:items-start">
                     <div>
@@ -575,7 +222,7 @@
             <div class="timeline-dot absolute left-0 w-4 h-4 -translate-x-1.5 translate-y-1.5 rounded-full border-2 border-primary transition-all duration-300 group-hover:scale-150 z-10" style="background-color: #000000;"></div>
             <div class="glass p-6 rounded-lg cv-card transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-primary/5 cursor-pointer">
               <div class="cv-card-content">
-                <img src="static/icons/rollsroyce.png" alt="Rolls-Royce" class="cv-logo">
+                <img src="static/rollsroyce.png" alt="Rolls-Royce" class="cv-logo">
                 <div class="flex-1 space-y-4">
                   <div class="flex flex-col md:flex-row md:justify-between md:items-start">
                     <div>
@@ -595,7 +242,7 @@
             <div class="timeline-dot absolute left-0 w-4 h-4 -translate-x-1.5 translate-y-1.5 rounded-full border-2 border-primary transition-all duration-300 group-hover:scale-150 z-10" style="background-color: #000000;"></div>
             <div class="glass p-6 rounded-lg cv-card transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-primary/5 cursor-pointer">
               <div class="cv-card-content">
-                <img src="static/icons/airbus.png" alt="Airbus" class="cv-logo">
+                <img src="static/airbus.png" alt="Airbus" class="cv-logo">
                 <div class="flex-1 space-y-4">
                   <div class="flex flex-col md:flex-row md:justify-between md:items-start">
                     <div>
@@ -626,7 +273,7 @@
             <div class="timeline-dot absolute left-0 w-4 h-4 -translate-x-1.5 translate-y-1.5 rounded-full border-2 border-primary transition-all duration-300 group-hover:scale-150 z-10" style="background-color: #000000;"></div>
             <div class="glass p-6 rounded-lg cv-card transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-primary/5 cursor-pointer">
               <div class="cv-card-content">
-                <img src="static/icons/gatech.png" alt="Georgia Tech" class="cv-logo">
+                <img src="static/gatech.png" alt="Georgia Tech" class="cv-logo">
                 <div class="flex-1 space-y-4">
                   <div class="flex flex-col md:flex-row md:justify-between md:items-start">
                     <div>
@@ -646,7 +293,7 @@
             <div class="timeline-dot absolute left-0 w-4 h-4 -translate-x-1.5 translate-y-1.5 rounded-full border-2 border-primary transition-all duration-300 group-hover:scale-150 z-10" style="background-color: #000000;"></div>
             <div class="glass p-6 rounded-lg cv-card transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-primary/5 cursor-pointer">
               <div class="cv-card-content">
-                <img src="static/icons/imperial.png" alt="Imperial College London" class="cv-logo">
+                <img src="static/imperial.png" alt="Imperial College London" class="cv-logo">
                 <div class="flex-1 space-y-4">
                   <div class="flex flex-col md:flex-row md:justify-between md:items-start">
                     <div>
@@ -730,10 +377,10 @@
         <h2 class="text-4xl font-bold">Projects</h2>
         <div class="flex items-center gap-4">
           <a href="https://scholar.google.com/citations?user=DMuVhnkAAAAJ&hl" target="_blank" class="glass p-3 rounded-lg hover:scale-110 transition-transform">
-            <img src="static/icons/gscholar.svg" class="w-6 h-6" alt="Google Scholar">
+            <img src="static/gscholar.svg" class="w-6 h-6" alt="Google Scholar">
           </a>
           <a href="https://github.com/fedesemeraro" target="_blank" class="glass p-3 rounded-lg hover:scale-110 transition-transform">
-            <img src="static/icons/github.svg" class="w-6 h-6" alt="GitHub">
+            <img src="static/github.svg" class="w-6 h-6" alt="GitHub">
           </a>
         </div>
       </div>
@@ -746,10 +393,10 @@
           <!-- DSplats -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-wrapper">
-              <img src="static/img/dsplats_background.png" alt="DSplats Background" class="project-image-background">
+              <img src="static/dsplats_background.png" alt="DSplats Background" class="project-image-background">
               <div class="project-dark-overlay"></div>
             <canvas class="project-canvas-overlay"></canvas>
-              <img src="static/img/dsplats.png" alt="DSplats" class="project-image-main">
+              <img src="static/dsplats.png" alt="DSplats" class="project-image-main">
             </div>
             <p class="text-primary text-sm font-medium">Apple MLR 2025</p>
             <h4 class="text-lg font-semibold">DSplats: 3D Generation by Denoising Splats-Based Multiview Diffusion Models</h4>
@@ -767,10 +414,10 @@
           <!-- 4DMCT -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-wrapper">
-              <img src="static/img/4dmct_background.png" alt="4DMCT Background" class="project-image-background">
+              <img src="static/4dmct_background.png" alt="4DMCT Background" class="project-image-background">
               <div class="project-dark-overlay"></div>
             <canvas class="project-canvas-overlay"></canvas>
-              <img src="static/img/4dmct.png" alt="4DMCT" class="project-image-main">
+              <img src="static/4dmct.png" alt="4DMCT" class="project-image-main">
             </div>
             <p class="text-primary text-sm font-medium">Advanced Materials 2025</p>
             <h4 class="text-lg font-semibold">Carbon Fiber Oxidation in 4D</h4>
@@ -788,10 +435,10 @@
           <!-- Permeability -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-wrapper">
-              <img src="static/img/permeability_background.png" alt="Permeability Background" class="project-image-background">
+              <img src="static/permeability_background.png" alt="Permeability Background" class="project-image-background">
               <div class="project-dark-overlay"></div>
             <canvas class="project-canvas-overlay"></canvas>
-              <img src="static/img/permeability.png" alt="Permeability" class="project-image-main">
+              <img src="static/permeability.png" alt="Permeability" class="project-image-main">
             </div>
             <p class="text-primary text-sm font-medium">CMAME 2025</p>
             <h4 class="text-lg font-semibold">Enabling FEM-based absolute permeability estimation in giga-voxel porous media with a single GPU</h4>
@@ -809,10 +456,10 @@
           <!-- arcjetCV -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-wrapper">
-              <img src="static/img/arcjetCV_background.jpg" alt="arcjetCV Background" class="project-image-background">
+              <img src="static/arcjetCV_background.jpg" alt="arcjetCV Background" class="project-image-background">
               <div class="project-dark-overlay"></div>
             <canvas class="project-canvas-overlay"></canvas>
-              <img src="static/img/arcjetCV.gif" alt="arcjetCV" class="project-image-main">
+              <img src="static/arcjetCV.gif" alt="arcjetCV" class="project-image-main">
             </div>
             <p class="text-primary text-sm font-medium">Spacecraft and Rockets 2025</p>
             <h4 class="text-lg font-semibold">arcjetCV: an open-source software to analyze material ablation</h4>
@@ -835,10 +482,10 @@
           <!-- TomoSAM -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-wrapper">
-              <img src="static/img/tomosam_background.jpg" alt="TomoSAM Background" class="project-image-background">
+              <img src="static/tomosam_background.jpg" alt="TomoSAM Background" class="project-image-background">
               <div class="project-dark-overlay"></div>
             <canvas class="project-canvas-overlay"></canvas>
-              <img src="static/img/tomosam.jpg" alt="TomoSAM" class="project-image-main">
+              <img src="static/tomosam.jpg" alt="TomoSAM" class="project-image-main">
             </div>
             <p class="text-primary text-sm font-medium">SoftwareX 2025</p>
             <h4 class="text-lg font-semibold">TomoSAM: Slicer's extension for 3D segmentation</h4>
@@ -864,10 +511,10 @@
           <!-- CHFEM -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-wrapper">
-              <img src="static/img/chfem_background.jpg" alt="CHFEM Background" class="project-image-background">
+              <img src="static/chfem_background.jpg" alt="CHFEM Background" class="project-image-background">
               <div class="project-dark-overlay"></div>
             <canvas class="project-canvas-overlay"></canvas>
-              <img src="static/img/chfem.jpg" alt="CHFEM" class="project-image-main">
+              <img src="static/chfem.jpg" alt="CHFEM" class="project-image-main">
             </div>
             <p class="text-primary text-sm font-medium">Computational Materials Science 2023</p>
             <h4 class="text-lg font-semibold">Simulation toolkit for digital material characterization</h4>
@@ -893,10 +540,10 @@
           <!-- PuMA -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-wrapper">
-              <img src="static/img/puma_background.jpg" alt="PuMA Background" class="project-image-background">
+              <img src="static/puma_background.jpg" alt="PuMA Background" class="project-image-background">
               <div class="project-dark-overlay"></div>
             <canvas class="project-canvas-overlay"></canvas>
-              <img src="static/img/puma.jpg" alt="PuMA" class="project-image-main">
+              <img src="static/puma.jpg" alt="PuMA" class="project-image-main">
             </div>
             <p class="text-primary text-sm font-medium">SoftwareX 2021</p>
             <h4 class="text-lg font-semibold">Porous Microstructure Analysis (PuMA)</h4>
@@ -922,10 +569,10 @@
           <!-- Elasticity -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-wrapper">
-              <img src="static/img/elasticity_background.jpg" alt="Elasticity Background" class="project-image-background">
+              <img src="static/elasticity_background.jpg" alt="Elasticity Background" class="project-image-background">
               <div class="project-dark-overlay"></div>
             <canvas class="project-canvas-overlay"></canvas>
-              <img src="static/img/elasticity.jpg" alt="Elasticity" class="project-image-main">
+              <img src="static/elasticity.jpg" alt="Elasticity" class="project-image-main">
             </div>
             <p class="text-primary text-sm font-medium">AIAA SciTech 2021</p>
             <h4 class="text-lg font-semibold">Multi-Scale Analysis of Effective Mechanical Properties of Porous 3D Woven Composite Materials</h4>
@@ -945,10 +592,10 @@
           <!-- Conductivity -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-wrapper">
-              <img src="static/img/conductivity_background.jpg" alt="Conductivity Background" class="project-image-background">
+              <img src="static/conductivity_background.jpg" alt="Conductivity Background" class="project-image-background">
               <div class="project-dark-overlay"></div>
             <canvas class="project-canvas-overlay"></canvas>
-              <img src="static/img/conductivity.jpg" alt="Conductivity" class="project-image-main">
+              <img src="static/conductivity.jpg" alt="Conductivity" class="project-image-main">
             </div>
             <p class="text-primary text-sm font-medium">Computational Materials Science 2021</p>
             <h4 class="text-lg font-semibold">Anisotropic analysis of fibrous and woven materials part 2: Computation of effective conductivity</h4>
@@ -971,10 +618,10 @@
           <!-- Orientation -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-wrapper">
-              <img src="static/img/orientation_background.jpg" alt="Orientation Background" class="project-image-background">
+              <img src="static/orientation_background.jpg" alt="Orientation Background" class="project-image-background">
               <div class="project-dark-overlay"></div>
             <canvas class="project-canvas-overlay"></canvas>
-              <img src="static/img/orientation.jpg" alt="Orientation" class="project-image-main">
+              <img src="static/orientation.jpg" alt="Orientation" class="project-image-main">
             </div>
             <p class="text-primary text-sm font-medium">Computational Materials Science 2020</p>
             <h4 class="text-lg font-semibold">Anisotropic analysis of fibrous and woven materials part 1: Estimation of local orientation</h4>
@@ -1004,10 +651,10 @@
           <!-- NeRF -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-wrapper">
-              <img src="static/img/nerf_background.jpg" alt="NeRF Background" class="project-image-background">
+              <img src="static/nerf_background.jpg" alt="NeRF Background" class="project-image-background">
               <div class="project-dark-overlay"></div>
             <canvas class="project-canvas-overlay"></canvas>
-              <img src="static/img/nerf.jpg" alt="NeRF" class="project-image-main">
+              <img src="static/nerf.jpg" alt="NeRF" class="project-image-main">
             </div>
             <p class="text-primary text-sm font-medium">OMS CS7643 Deep Learning - arXiv 2023</p>
             <h4 class="text-lg font-semibold">NeRF applied to satellite imagery</h4>
@@ -1030,7 +677,7 @@
           <!-- Stereo Correspondence -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-simple">
-              <img src="static/img/stereo.jpg" alt="Stereo">
+              <img src="static/stereo.jpg" alt="Stereo">
               <div class="project-dark-overlay"></div>
               <canvas class="project-canvas-overlay"></canvas>
             </div>
@@ -1047,7 +694,7 @@
           <!-- Video Stabilization -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-simple">
-              <img src="static/img/stabilizer.jpg" alt="Stabilizer">
+              <img src="static/stabilizer.jpg" alt="Stabilizer">
               <div class="project-dark-overlay"></div>
               <canvas class="project-canvas-overlay"></canvas>
             </div>
@@ -1071,10 +718,10 @@
           <!-- Blender2DIRSIG -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-wrapper">
-              <img src="static/img/blender2dirsig_background.jpg" alt="Blender2DIRSIG Background" class="project-image-background">
+              <img src="static/blender2dirsig_background.jpg" alt="Blender2DIRSIG Background" class="project-image-background">
               <div class="project-dark-overlay"></div>
             <canvas class="project-canvas-overlay"></canvas>
-              <img src="static/img/blender2dirsig.jpg" alt="Blender2DIRSIG" class="project-image-main">
+              <img src="static/blender2dirsig.jpg" alt="Blender2DIRSIG" class="project-image-main">
             </div>
             <h4 class="text-lg font-semibold">blender2dirsig</h4>
             <p class="text-muted-foreground text-sm">
@@ -1088,10 +735,10 @@
           <!-- Copper Tracker -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-wrapper">
-              <img src="static/img/copper_background.jpg" alt="Copper Tracker Background" class="project-image-background">
+              <img src="static/copper_background.jpg" alt="Copper Tracker Background" class="project-image-background">
               <div class="project-dark-overlay"></div>
             <canvas class="project-canvas-overlay"></canvas>
-              <img src="static/img/copper.jpg" alt="Copper Tracker" class="project-image-main">
+              <img src="static/copper.jpg" alt="Copper Tracker" class="project-image-main">
             </div>
             <h4 class="text-lg font-semibold">Copper Tracker</h4>
             <p class="text-muted-foreground text-sm">
@@ -1110,7 +757,7 @@
           <!-- LiMA Flight Tracker -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-simple">
-              <img src="static/img/lima.jpg" alt="LiMA">
+              <img src="static/lima.jpg" alt="LiMA">
               <div class="project-dark-overlay"></div>
               <canvas class="project-canvas-overlay"></canvas>
             </div>
@@ -1138,7 +785,7 @@
           <!-- NEMESYS -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-simple">
-              <img src="static/img/nemesys.jpg" alt="NEMESYS">
+              <img src="static/nemesys.jpg" alt="NEMESYS">
               <div class="project-dark-overlay"></div>
               <canvas class="project-canvas-overlay"></canvas>
             </div>
@@ -1154,7 +801,7 @@
           <!-- Ghana Water Brigade -->
           <div class="glass p-6 rounded-lg space-y-4 transition-transform hover:scale-105">
             <div class="project-image-simple">
-              <img src="static/img/ghana.jpg" alt="Ghana">
+              <img src="static/ghana.jpg" alt="Ghana">
               <div class="project-dark-overlay"></div>
               <canvas class="project-canvas-overlay"></canvas>
             </div>
@@ -1178,301 +825,8 @@
     </div>
   </footer>
 
-  <script>
-    // Canvas Animation - Particle Network Effect
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-
-    // Set canvas size
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    // Particle system
-    const particles = [];
-    const particleCount = 80;
-    const connectionDistance = 150;
-    const mouseRadius = 200;
-    const mouse = { x: null, y: null };
-
-    // Track mouse movement
-    window.addEventListener('mousemove', (e) => {
-      mouse.x = e.x;
-      mouse.y = e.y;
-    });
-
-    window.addEventListener('mouseout', () => {
-      mouse.x = null;
-      mouse.y = null;
-    });
-
-    // Particle class
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = Math.random() * 2 + 1;
-      }
-
-      update() {
-        // Mouse interaction
-        if (mouse.x && mouse.y) {
-          const dx = mouse.x - this.x;
-          const dy = mouse.y - this.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < mouseRadius) {
-            const angle = Math.atan2(dy, dx);
-            const force = (mouseRadius - distance) / mouseRadius;
-            this.vx -= Math.cos(angle) * force * 0.2;
-            this.vy -= Math.sin(angle) * force * 0.2;
-          }
-        }
-
-        // Move particle
-        this.x += this.vx;
-        this.y += this.vy;
-
-        // Boundary check
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-
-        // Friction
-        this.vx *= 0.99;
-        this.vy *= 0.99;
-
-        // Keep some minimum movement
-        if (Math.abs(this.vx) < 0.1) this.vx += (Math.random() - 0.5) * 0.1;
-        if (Math.abs(this.vy) < 0.1) this.vy += (Math.random() - 0.5) * 0.1;
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(138, 180, 248, 0.8)'; // Light blue color
-        ctx.fill();
-      }
-    }
-
-    // Create particles
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
-
-    // Animation loop
-    function animate() {
-      // Clear canvas completely (no trail effect)
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Update and draw particles
-      particles.forEach(particle => {
-        particle.update();
-        particle.draw();
-      });
-
-      // Draw connections
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < connectionDistance) {
-            const opacity = (1 - distance / connectionDistance) * 0.5;
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(138, 180, 248, ${opacity})`;
-            ctx.lineWidth = 1;
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-
-    // Project Image Particle Overlays
-    class ProjectParticleSystem {
-      constructor(canvas) {
-        this.canvas = canvas;
-        this.ctx = canvas.getContext('2d');
-        this.particles = [];
-        this.particleCount = 30;
-        this.connectionDistance = 80;
-        this.isAnimating = false;
-        this.animationId = null;
-
-        this.resizeCanvas();
-        this.initParticles();
-        this.setupHoverListeners();
-      }
-
-      resizeCanvas() {
-        const rect = this.canvas.getBoundingClientRect();
-        this.canvas.width = rect.width;
-        this.canvas.height = rect.height;
-      }
-
-      initParticles() {
-        this.particles = [];
-        for (let i = 0; i < this.particleCount; i++) {
-          this.particles.push({
-            x: Math.random() * this.canvas.width,
-            y: Math.random() * this.canvas.height,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5,
-            radius: Math.random() * 2 + 1
-          });
-        }
-      }
-
-      setupHoverListeners() {
-        const wrapper = this.canvas.closest('.project-image-wrapper') || this.canvas.closest('.project-image-simple');
-        if (wrapper) {
-          wrapper.addEventListener('mouseenter', () => this.startAnimation());
-          wrapper.addEventListener('mouseleave', () => this.stopAnimation());
-        }
-      }
-
-      startAnimation() {
-        if (!this.isAnimating) {
-          this.isAnimating = true;
-          this.animate();
-        }
-      }
-
-      stopAnimation() {
-        this.isAnimating = false;
-        if (this.animationId) {
-          cancelAnimationFrame(this.animationId);
-          this.animationId = null;
-        }
-      }
-
-      updateParticle(particle) {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-
-        if (particle.x < 0 || particle.x > this.canvas.width) particle.vx *= -1;
-        if (particle.y < 0 || particle.y > this.canvas.height) particle.vy *= -1;
-
-        particle.vx *= 0.99;
-        particle.vy *= 0.99;
-
-        if (Math.abs(particle.vx) < 0.1) particle.vx += (Math.random() - 0.5) * 0.1;
-        if (Math.abs(particle.vy) < 0.1) particle.vy += (Math.random() - 0.5) * 0.1;
-      }
-
-      drawParticle(particle) {
-        this.ctx.beginPath();
-        this.ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        this.ctx.fillStyle = 'rgba(138, 180, 248, 0.8)';
-        this.ctx.fill();
-      }
-
-      animate() {
-        if (!this.isAnimating) return;
-
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-        this.particles.forEach(particle => {
-          this.updateParticle(particle);
-          this.drawParticle(particle);
-        });
-
-        for (let i = 0; i < this.particles.length; i++) {
-          for (let j = i + 1; j < this.particles.length; j++) {
-            const dx = this.particles[i].x - this.particles[j].x;
-            const dy = this.particles[i].y - this.particles[j].y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < this.connectionDistance) {
-              const opacity = (1 - distance / this.connectionDistance) * 0.5;
-              this.ctx.beginPath();
-              this.ctx.strokeStyle = `rgba(138, 180, 248, ${opacity})`;
-              this.ctx.lineWidth = 1;
-              this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
-              this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
-              this.ctx.stroke();
-            }
-          }
-        }
-
-        this.animationId = requestAnimationFrame(() => this.animate());
-      }
-    }
-
-    // Initialize particle systems for all project canvases
-    document.querySelectorAll('.project-canvas-overlay').forEach(canvas => {
-      new ProjectParticleSystem(canvas);
-    });
-
-    // Handle window resize for project canvases
-    window.addEventListener('resize', () => {
-      document.querySelectorAll('.project-canvas-overlay').forEach(canvas => {
-        const rect = canvas.getBoundingClientRect();
-        canvas.width = rect.width;
-        canvas.height = rect.height;
-      });
-    });
-
-    // Smooth scroll with offset for fixed nav
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          window.scrollTo({
-            top: target.offsetTop - 100,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // Intersection Observer for fade-in animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-
-    document.querySelectorAll('.fade-in').forEach((el) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
-      observer.observe(el);
-    });
-
-    // PDF Modal Functions
-    function openPdfModal() {
-      document.getElementById('pdfModal').classList.add('active');
-      document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    }
-
-    function closePdfModal() {
-      document.getElementById('pdfModal').classList.remove('active');
-      document.body.style.overflow = ''; // Restore scrolling
-    }
-
-    // Close modal on ESC key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closePdfModal();
-    });
-  </script>
+  <!-- Custom Scripts -->
+  <script src="script.js"></script>
 
   <!-- PDF Modal -->
   <div id="pdfModal" class="pdf-modal">
@@ -1481,14 +835,5 @@
       <iframe src="https://drive.google.com/file/d/1rVNenrc4KMGMROUZaNk2VqCSIc5ilZHf/preview"></iframe>
     </div>
   </div>
-
-  <script>
-    // Close modal on click outside (must be after modal HTML exists)
-    document.getElementById('pdfModal').addEventListener('click', (e) => {
-      if (e.target.id === 'pdfModal') {
-        closePdfModal();
-      }
-    });
-  </script>
 </body>
 </html>
