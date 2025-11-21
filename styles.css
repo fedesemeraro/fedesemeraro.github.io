@@ -372,7 +372,7 @@ img[src$=".svg"] {
 
   /* Scale down bio text on mobile */
   #about .text-lg {
-    font-size: 0.85rem;
+    font-size: 1.0rem;
     line-height: 1.5;
   }
 
@@ -384,7 +384,7 @@ img[src$=".svg"] {
 
   /* Scale down all headings */
   h2 {
-    font-size: 1.75rem !important;
+    font-size: 1.6rem !important;
   }
 
   h3 {
@@ -397,15 +397,15 @@ img[src$=".svg"] {
 
   /* Scale down all card text */
   .glass p {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   .glass .text-sm {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
   }
 
   .glass .text-lg {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
 
   /* Scale down CV cards */
@@ -426,15 +426,20 @@ img[src$=".svg"] {
 
   /* Scale down buttons */
   .glass a[class*="inline-flex"] {
-    font-size: 0.75rem;
+    font-size: 1.0rem;
     padding: 0.5rem 0.75rem;
     height: auto;
   }
 
   /* Reduce section padding */
   .section {
-    padding-top: 3rem;
+    padding-top: 6rem;
     padding-bottom: 3rem;
+  }
+
+  /* Extra padding for about section to clear nav bar */
+  #about {
+    padding-top: 7rem;
   }
 
   /* Scale down profile image */
@@ -451,7 +456,7 @@ img[src$=".svg"] {
 
   /* Scale down name */
   #about .text-xl {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
   }
 
   /* Reduce spacing in cards */
